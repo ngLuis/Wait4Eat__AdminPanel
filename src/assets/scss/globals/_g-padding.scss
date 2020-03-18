@@ -1,0 +1,70 @@
+$sizes: ('xs':10px, 's':20px, 'm':40px, 'l':80px, 'xl':160px);
+
+.g-padding {
+    @each $size, $value in $sizes {
+        &--#{$size} {
+            padding: $value;
+        }
+
+        &--vertical-#{$size} {
+            padding-top: $value;
+            padding-bottom: $value;
+        }
+
+        &--horizontal-#{$size} {
+            padding-left: $value;
+            padding-right: $value;
+        }
+
+        &--top-#{$size} {
+            padding-top: $value;
+        }
+
+        &--bottom-#{$size} {
+            padding-bottom: $value;
+        }
+
+        &--right-#{$size} {
+            padding-right: $value;
+        }
+
+        &--left-#{$size} {
+            padding-left: $value;
+        }
+    }
+
+    @media (max-width: 512px) {
+        @each $size, $value in $sizes {
+            &--#{$size} {
+                padding: $value;
+            }
+    
+            &--vertical-#{$size} {
+                padding-top: $value;
+                padding-bottom: $value;
+            }
+    
+            &--horizontal-#{$size} {
+                padding-left: $value;
+                padding-right: $value;
+            }
+    
+            &--top-#{$size} {
+                padding-top: $value;
+            }
+    
+            &--bottom-#{$size} {
+                padding-bottom: $value;
+            }
+    
+            &--right-#{$size} {
+                padding-right: $value;
+            }
+    
+            &--left-#{$size} {
+                padding-left: $value;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,30 @@
+.c-button {
+    border-bottom: none;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 40px;
+    padding-left: 40px;
+    border: 1px solid black;
+    background: none;
+    display: inline-block;
+
+    &:hover {
+        background-color: black;
+        color: white; 
+        animation-name: fillButtonProgressive;
+        animation-duration: .5s;
+    }
+}
+
+@keyframes fillButtonProgressive {
+    from {
+        background: none;
+        color: black;
+    }
+
+    to {
+        background-color: black;
+        color: white; 
+    }
+}

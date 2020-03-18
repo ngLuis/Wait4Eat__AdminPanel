@@ -1,0 +1,63 @@
+@import "../../../../assets/scss/base/fonts";
+@import "../../../../assets/scss/abstract/variables";
+
+.c-form {
+
+    font-family:$corporativeFormFont;
+
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 50px;
+    }
+    
+    &__unity {
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    &__input-label {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        color: #999999;
+        transition: .5s;
+        pointer-events: none;
+    }
+
+    &__error-message {
+        color: red;
+        font-size: 12px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    &__input {
+        padding: 10px 150px 10px 0px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        box-shadow: none;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #999999;
+    }
+
+    &__input:focus ~ &__input-label {
+        top: -12px;
+        left: 0;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    &__input:valid ~ &__input-label {
+        top: -12px;
+        left: 0;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    &__button {
+        margin-left: 220px;
+    }
+
+}

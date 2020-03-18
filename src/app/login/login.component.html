@@ -1,0 +1,18 @@
+<div class="l-columns l-columns--2-columns">
+    <div class="l-columns__area">
+        <div class="c-login__carousel-wrapper">
+            <app-carousel></app-carousel>
+        </div>
+    </div>
+    <div class="l-columns__area">
+        <div class="c-section">
+            <div class="c-section__header">
+                <h1 class="c-section__title">Wait 4 Eat</h1>
+                <h4 class="c-section__title c-section__title--little">Manage Panel</h4>
+            </div>
+            <div class="c-section__content">
+                <app-form [formType]="formType" [buttonText]="'Enviar'" (formData)="logInSystem($event)"></app-form>
+            </div>
+        </div>
+    </div>
+</div>

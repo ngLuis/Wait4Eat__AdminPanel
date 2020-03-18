@@ -1,0 +1,38 @@
+.c-carousel {
+
+    width: 100%;
+    height: 100%;
+    background-color: black;
+
+    &__image {
+        width: 100%;
+        height: 100%;
+
+        &--appear {
+            animation-name: imageAppear;
+            animation-duration: 1s;
+        }
+
+        &--disappear {
+            animation-name: imageDesappear;
+            animation-duration: 1s;
+        }
+    }
+
+}
+
+@keyframes imageAppear {
+    0% { filter: blur(4px); }
+    25% { filter: blur(3px); }
+    50% { filter: blur(2px); }
+    75% { filter: blur(1px); }
+    100% { filter: blur(0px); }
+}
+
+@keyframes imageDesappear {
+    0% { filter: blur(0px); }
+    25% { filter: blur(1px); }
+    50% { filter: blur(2px); }
+    75% { filter: blur(3px); }
+    100% { filter: blur(4px); }
+}

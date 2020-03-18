@@ -1,0 +1,18 @@
+<form class="c-form g-padding--horizontal-xl" [formGroup]="form" (ngSubmit)="sendForm()">
+    <h1 class="c-form__title">Entra y gestiona tu empresa</h1>
+    <div class="c-form__unity" *ngIf="formType === 'login'">
+        <input class="c-form__input" formControlName='emailLogin' type="email" required/>
+        <label class="c-form__input-label">Introduce tu Email</label>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('emailLogin').errors?.required">Debes completar este campo</label>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('emailLogin').errors?.email">Formato de email erroneo</label>
+    </div>
+    <div class="c-form__unity" *ngIf="formType === 'login'">
+        <input class="c-form__input" formControlName='passwordLogin' type="password" required/>
+        <label class="c-form__input-label">Introduce tu Contraseña</label>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('passwordLogin').errors?.required">Debes completar este campo</label>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('passwordLogin').errors?.minlength">Debes tener al menos 6 caracteres</label>
+    </div>
+    <div class="c-form__button">
+        <button class="c-button" type="submit">{{buttonText}}</button>
+    </div>
+</form>

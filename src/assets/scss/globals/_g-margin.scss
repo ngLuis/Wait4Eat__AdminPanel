@@ -1,0 +1,71 @@
+$sizes: ('xs':10px, 's':20px, 'm':40px, 'l':80px, 'xl':160px);
+
+.g-margin {
+
+    @each $size, $value in $sizes {
+        &--#{$size} {
+            margin: $value;
+        }
+
+        &--vertical-#{$size} {
+            margin-top: $value;
+            margin-bottom: $value;
+        }
+
+        &--horizontal-#{$size} {
+            margin-left: $value;
+            margin-right: $value;
+        }
+
+        &--top-#{$size} {
+            margin-top: $value;
+        }
+
+        &--bottom-#{$size} {
+            margin-bottom: $value;
+        }
+
+        &--right-#{$size} {
+            margin-right: $value;
+        }
+
+        &--left-#{$size} {
+            margin-left: $value;
+        }
+    }
+
+    @media (max-width: 512px) {
+        @each $size, $value in $sizes {
+            &--#{$size} {
+                margin: $value;
+            }
+    
+            &--vertical-#{$size} {
+                margin-top: $value;
+                margin-bottom: $value;
+            }
+    
+            &--horizontal-#{$size} {
+                margin-left: $value;
+                margin-right: $value;
+            }
+    
+            &--top-#{$size} {
+                margin-top: $value;
+            }
+    
+            &--bottom-#{$size} {
+                margin-bottom: $value;
+            }
+    
+            &--right-#{$size} {
+                margin-right: $value;
+            }
+    
+            &--left-#{$size} {
+                margin-left: $value;
+            }
+        }
+    }
+
+}
