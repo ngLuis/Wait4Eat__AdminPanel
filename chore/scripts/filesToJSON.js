@@ -10,7 +10,6 @@ let directoryManagement = new DirectoryManagement();
 
 jsonScanner.getAssetsPath(filter, jsonFilePath, '')
 .then( directoryPath => {
-    console.log(directoryPath);
     directoryManagement.deleteJSONFromDirectory(directoryPath, '', 'images');
 
     let files = directoryManagement.readDirectory(directoryPath, '/img/carousel');
