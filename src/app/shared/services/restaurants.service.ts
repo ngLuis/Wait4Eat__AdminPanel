@@ -17,7 +17,7 @@ export class RestaurantsService {
   getRestaurantsByOwner(idOwner) {
     let ownerRestaurants: Array<Restaurant> = [];
     this.restaurants.map( (restaurant) => {
-      if (restaurant.idOwner === idOwner) {
+      if (restaurant.idOwner === parseInt(idOwner)) {
         ownerRestaurants.push(restaurant);
       }
     })

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { CanActivateByTypeService } from './shared/services/can-activate-by-type.service';
+import { CanActivateByTypeService } from './shared/services/RoutesProtection/can-activate-by-type.service';
 
 
 const routes: Routes = [
