@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CanActivateByUserLoggedGuard } from './shared/services/RoutesProtection/can-activate-by-user-logged.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'wait4eatAdmin';
+
+  constructor(
+    private userLoggedRegirect: CanActivateByUserLoggedGuard
+  ){
+    // this.userLoggedRegirect.canActivate();
+  }
 }

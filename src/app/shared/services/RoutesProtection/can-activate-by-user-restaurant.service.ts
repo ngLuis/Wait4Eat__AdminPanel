@@ -7,7 +7,7 @@ import { ToastService } from '../toast.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CanActivateByUserRestaurant implements CanActivate{
+export class CanActivateByUserRestaurantGuard implements CanActivate{
 
   constructor(
     private cookieService: CookieService,
@@ -21,7 +21,7 @@ export class CanActivateByUserRestaurant implements CanActivate{
     let ownId = parseInt(this.cookieService.get('w4e-id'));
     let restaurantIdToActivate = parseInt(route.paramMap.get('id'));
     let ownRestaurants = this.restaurantService.getRestaurantsByOwner(ownId);
-
+    console.log('Hello')
     ownRestaurants.map( restaurant => {
         if ( restaurant.id === restaurantIdToActivate ) {
             canActivate = true;
@@ -29,8 +29,9 @@ export class CanActivateByUserRestaurant implements CanActivate{
     });
 
     if ( !canActivate ) {
-        this.router.navigate(['/restaurant-panel']);
+      
         this.toastService.showError('Acceso denegado', 'Solo puedes gestionar tus restaurantes');
+        this.router.navigate(['/restaurant-panel']);
     }
 
     return canActivate;

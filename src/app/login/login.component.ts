@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit {
         this.cookieService.delete('w4e-id');
         this.toastService.showError('Inicio de sesión fallido', 'Tus credenciales son correctas, pero no tienes permisos para acceder a la administración');
       }
+    } else {
+      this.toastService.showError('Inicio de sesión fallido', 'Las credenciales no son correctas');
     }
   }
 

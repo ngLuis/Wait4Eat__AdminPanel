@@ -5,7 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root'
 })
-export class CanActivateByTypeService implements CanActivate{
+export class CanActivateByTypeGuard implements CanActivate{
 
   constructor(
     private cookieService: CookieService,
