@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
 
         this.cookieService.set('w4e-email', userLogged.email);
         this.cookieService.set('w4e-type', userLogged.type.toString());
+        this.cookieService.set('w4e-id', userLogged.id.toString()); 
 
         if (userLogged.type === 1) {
           this.router.navigate(['/restaurant-panel']);
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
       } else {
         this.cookieService.set('w4e-email', '');
         this.cookieService.set('w4e-type', '');
+        this.cookieService.set('w4e-id', '');      
       }
     }
   }

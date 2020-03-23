@@ -9,7 +9,7 @@ export class AuthService {
   usersArray: Array<User> = [
     {id: 0, username: 'luis', password: 'adminadmin', email: 'luis@gmail.com', phoneNumber: 524123658, type: 0, image: 'default'},
     {id: 1, username: 'toni', password: 'adminadmin', email: 'toni@gmail.com', phoneNumber: 452985632, type: 1, image: 'default'},
-    {id: 2, username: 'josemi', password: 'adminadmin', email: 'josemi@gmail.com', phoneNumber: 852852741, type: 2, image: 'default'}
+    {id: 2, username: 'josemi', password: 'adminadmin', email: 'josemi@gmail.com', phoneNumber: 852852741, type: 1, image: 'default'}
   ]
 
   constructor() { }

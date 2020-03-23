@@ -1,68 +1,68 @@
 $sizes: ('xs':10px, 's':20px, 'm':40px, 'l':80px, 'xl':160px);
 
-.g-margin {
+.g--margin {
 
     @each $size, $value in $sizes {
-        &--#{$size} {
+        &-#{$size} {
             margin: $value;
         }
 
-        &--vertical-#{$size} {
+        &-vertical-#{$size} {
             margin-top: $value;
             margin-bottom: $value;
         }
 
-        &--horizontal-#{$size} {
+        &-horizontal-#{$size} {
             margin-left: $value;
             margin-right: $value;
         }
 
-        &--top-#{$size} {
+        &-top-#{$size} {
             margin-top: $value;
         }
 
-        &--bottom-#{$size} {
+        &-bottom-#{$size} {
             margin-bottom: $value;
         }
 
-        &--right-#{$size} {
+        &-right-#{$size} {
             margin-right: $value;
         }
 
-        &--left-#{$size} {
+        &-left-#{$size} {
             margin-left: $value;
         }
     }
 
     @media (max-width: 512px) {
         @each $size, $value in $sizes {
-            &--#{$size} {
+            &--#{$size}\@phone {
                 margin: $value;
             }
     
-            &--vertical-#{$size} {
+            &--vertical-#{$size}\@phone {
                 margin-top: $value;
                 margin-bottom: $value;
             }
     
-            &--horizontal-#{$size} {
+            &--horizontal-#{$size}\@phone {
                 margin-left: $value;
                 margin-right: $value;
             }
     
-            &--top-#{$size} {
+            &--top-#{$size}\@phone {
                 margin-top: $value;
             }
     
-            &--bottom-#{$size} {
+            &--bottom-#{$size}\@phone {
                 margin-bottom: $value;
             }
     
-            &--right-#{$size} {
+            &--right-#{$size}\@phone {
                 margin-right: $value;
             }
     
-            &--left-#{$size} {
+            &--left-#{$size}\@phone {
                 margin-left: $value;
             }
         }

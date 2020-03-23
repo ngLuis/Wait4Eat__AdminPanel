@@ -1,67 +1,67 @@
 $sizes: ('xs':10px, 's':20px, 'm':40px, 'l':80px, 'xl':160px);
 
-.g-padding {
+.g--padding {
     @each $size, $value in $sizes {
-        &--#{$size} {
+        &-#{$size} {
             padding: $value;
         }
 
-        &--vertical-#{$size} {
+        &-vertical-#{$size} {
             padding-top: $value;
             padding-bottom: $value;
         }
 
-        &--horizontal-#{$size} {
+        &-horizontal-#{$size} {
             padding-left: $value;
             padding-right: $value;
         }
 
-        &--top-#{$size} {
+        &-top-#{$size} {
             padding-top: $value;
         }
 
-        &--bottom-#{$size} {
+        &-bottom-#{$size} {
             padding-bottom: $value;
         }
 
-        &--right-#{$size} {
+        &-right-#{$size} {
             padding-right: $value;
         }
 
-        &--left-#{$size} {
+        &-left-#{$size} {
             padding-left: $value;
         }
     }
 
     @media (max-width: 512px) {
         @each $size, $value in $sizes {
-            &--#{$size} {
+            &-#{$size}\@phone {
                 padding: $value;
             }
     
-            &--vertical-#{$size} {
+            &-vertical-#{$size}\@phone {
                 padding-top: $value;
                 padding-bottom: $value;
             }
     
-            &--horizontal-#{$size} {
+            &-horizontal-#{$size}\@phone {
                 padding-left: $value;
                 padding-right: $value;
             }
     
-            &--top-#{$size} {
+            &-top-#{$size}\@phone {
                 padding-top: $value;
             }
     
-            &--bottom-#{$size} {
+            &-bottom-#{$size}\@phone {
                 padding-bottom: $value;
             }
     
-            &--right-#{$size} {
+            &-right-#{$size}\@phone {
                 padding-right: $value;
             }
     
-            &--left-#{$size} {
+            &-left-#{$size}\@phone {
                 padding-left: $value;
             }
         }

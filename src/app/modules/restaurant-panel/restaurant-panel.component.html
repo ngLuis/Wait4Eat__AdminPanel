@@ -1,1 +1,18 @@
-<p>restaurant-panel works!</p>
+<div class="c-section" class="g--padding-m">
+    <div class="c-section__header">
+        <h1 class="c-section__title c-section__title--little">Selecciona el restaurante que quieras administrar</h1>
+    </div>
+    <div class="c-section__content">
+        <div class="l-columns l-columns--3-columns l-columns--1-columns@phone">
+            <div class="l-columns__area g--margin-xs g--margin-left-m" *ngFor='let restaurant of restaurants'>
+                <div class="c-card">
+                    <img class="c-card__img" src="../../../assets/img/carousel/2.jpg"/>
+                    <h1 class="c-card__title">{{restaurant.name}}</h1>
+                    <div class="c-card__content">
+                        <a class="c-button" (click)='registerRestaurantManipulation(restaurant.id)'>Seleccionar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

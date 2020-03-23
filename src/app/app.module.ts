@@ -13,7 +13,6 @@ import { ImagesService } from './shared/services/images.service';
 import { FormComponent } from './shared/components/form/form.component';
 import { AuthService } from './shared/services/auth.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -9,9 +9,10 @@
 @import './layouts/l-columns';
 
 //Globals
-@import './globals/g-margin';
-@import './globals/g-padding';
+@import './globals/g--margin';
+@import './globals/g--padding';
 
 //Components
 @import './components/c-section';
 @import './components/c-button';
+@import './components/c-card';
