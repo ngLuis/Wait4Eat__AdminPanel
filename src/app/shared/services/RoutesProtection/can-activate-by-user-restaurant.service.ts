@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { RestaurantsService } from '../restaurants.service';
+import { ToastService } from '../toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class CanActivateByUserRestaurant implements CanActivate{
   constructor(
     private cookieService: CookieService,
     private router: Router,
-    private restaurantService: RestaurantsService
+    private restaurantService: RestaurantsService,
+    private toastService: ToastService
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot) {
@@ -28,6 +30,7 @@ export class CanActivateByUserRestaurant implements CanActivate{
 
     if ( !canActivate ) {
         this.router.navigate(['/restaurant-panel']);
+        this.toastService.showError('Acceso denegado', 'Solo puedes gestionar tus restaurantes');
     }
 
     return canActivate;

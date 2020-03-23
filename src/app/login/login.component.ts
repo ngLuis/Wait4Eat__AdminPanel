@@ -4,6 +4,7 @@ import { AuthService } from '../shared/services/auth.service';
 import { User } from '../shared/interfaces/User.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { ToastService } from '../shared/services/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private cookieService: CookieService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService
   ) { }
 
   ngOnInit() {
@@ -34,12 +36,18 @@ export class LoginComponent implements OnInit {
 
         if (userLogged.type === 1) {
           this.router.navigate(['/restaurant-panel']);
+          this.toastService.showSuccess('Inicio de sesión correcto', 'Ya puedes administrar tu restaurante');
+        }
+
+        if (userLogged.type === 2) {
+          this.toastService.showSuccess('Inicio de sesión correcto', 'Ya puedes administrar la aplicación');
         }
         
       } else {
-        this.cookieService.set('w4e-email', '');
-        this.cookieService.set('w4e-type', '');
-        this.cookieService.set('w4e-id', '');      
+        this.cookieService.delete('w4e-email');
+        this.cookieService.delete('w4e-type');
+        this.cookieService.delete('w4e-id');
+        this.toastService.showError('Inicio de sesión fallido', 'Tus credenciales son correctas, pero no tienes permisos para acceder a la administración');
       }
     }
   }

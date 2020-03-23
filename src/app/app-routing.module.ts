@@ -7,7 +7,7 @@ import { CanActivateByTypeService } from './shared/services/RoutesProtection/can
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full'},
-  { path: 'restaurant-panel', loadChildren: './modules/restaurant-panel/restaurant-panel.module#RestaurantPanelModule', canActivate: [CanActivateByTypeService]}
+  { path: 'restaurant-panel', loadChildren: () => import('./modules/restaurant-panel/restaurant-panel.module').then(m => m.RestaurantPanelModule), canActivate: [CanActivateByTypeService]}
 ];
 
 @NgModule({
