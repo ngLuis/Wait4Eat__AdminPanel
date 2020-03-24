@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { faHome, faUtensils, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { MenuOption } from '../../interfaces/MenuOption.interface';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  faSignOutAlt = faSignOutAlt;
 
-  @Input() text: string;
+  @Input() options: Array<MenuOption>;
+
+  constructor() { }
 
   ngOnInit(): void {
   }

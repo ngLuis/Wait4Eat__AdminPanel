@@ -1,0 +1,46 @@
+@import "../../../../assets/scss/base/fonts";
+@import "../../../../assets/scss/abstract/variables";
+
+.c-menu {
+
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    height: 70px;
+    font-family: $corporativeFormFont;
+
+    &__option {
+        color: white;
+        line-height: 70px;
+        margin-left: 20px;
+        margin-right: 20px;
+        
+        &--right {
+            margin-left: auto;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__icon {
+        margin-right: 5px;
+    }
+
+    &__option:hover > &__bottom-bar {
+        position: relative;
+        bottom: 20px;
+        height: 3px;
+        background-color: white;
+    
+        animation-name: bottomBarAppears;
+        animation-duration: 2s;  
+    }
+
+}
+
+@keyframes bottomBarAppears {
+    from { width: 0%;}
+    to { width: 100%; }
+}
