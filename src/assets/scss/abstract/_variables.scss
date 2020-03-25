@@ -1,3 +1,10 @@
 $corporativeTitlesFont: 'Bebas Neue', cursive;
 $corporativeFormFont: 'Roboto Mono', monospace;
 $toastText: 'Lato', sans-serif;
+
+//Colores CRUD from https://coolors.co/16bac5-004e64-00ff90-c41935-ffe554
+$dangerColor: #FFE554;
+$warningColor: #C41935;
+$newColor: darken(#00FF90, 15%);
+$updateColor: #004E64;
+$notifyColor: #16BAC5;

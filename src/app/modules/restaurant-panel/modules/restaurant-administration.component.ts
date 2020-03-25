@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Form } from 'src/app/shared/enums/form.enum';
 import { MenuOption } from 'src/app/shared/interfaces/MenuOption.interface';
 import { faHome, faUtensils } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-administration',
@@ -10,12 +11,16 @@ import { faHome, faUtensils } from '@fortawesome/free-solid-svg-icons';
 })
 export class RestaurantAdministrationComponent implements OnInit {
 
+  regularUrl = '/restaurant-panel/' + this.router.snapshot.params['id'];
+
   options: Array<MenuOption> = [
-    {name: 'Inicio', icon: faHome, routeLink: '/login'},
-    {name: 'Productos', icon: faUtensils, routeLink: '/products'}
+    {name: 'Inicio', icon: faHome, routeLink: this.regularUrl + '/home'},
+    {name: 'Productos', icon: faUtensils, routeLink: this.regularUrl + '/products'}
   ]
 
-  constructor() { }
+  constructor(
+    private router: ActivatedRoute
+  ) { }
 
   ngOnInit() {
   }

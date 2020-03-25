@@ -36,33 +36,33 @@ $sizes: ('xs':10px, 's':20px, 'm':40px, 'l':80px, 'xl':160px);
 
     @media (max-width: 512px) {
         @each $size, $value in $sizes {
-            &--#{$size}\@phone {
+            &-#{$size}\@phone {
                 margin: $value;
             }
     
-            &--vertical-#{$size}\@phone {
+            &-vertical-#{$size}\@phone {
                 margin-top: $value;
                 margin-bottom: $value;
             }
     
-            &--horizontal-#{$size}\@phone {
+            &-horizontal-#{$size}\@phone {
                 margin-left: $value;
                 margin-right: $value;
             }
     
-            &--top-#{$size}\@phone {
+            &-top-#{$size}\@phone {
                 margin-top: $value;
             }
     
-            &--bottom-#{$size}\@phone {
+            &-bottom-#{$size}\@phone {
                 margin-bottom: $value;
             }
     
-            &--right-#{$size}\@phone {
+            &-right-#{$size}\@phone {
                 margin-right: $value;
             }
     
-            &--left-#{$size}\@phone {
+            &-left-#{$size}\@phone {
                 margin-left: $value;
             }
         }

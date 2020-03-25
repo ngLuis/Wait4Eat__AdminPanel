@@ -1,3 +1,7 @@
+@include fillButtonAnimation($updateColor, white, 'fillButtonProgressiveUpdate');
+@include fillButtonAnimation(black, white, 'fillButtonProgressive');
+@include fillButtonAnimation($newColor, white, 'fillButtonProgressiveNew');
+
 .c-button {
     border-bottom: none;
     cursor: pointer;
@@ -8,23 +12,57 @@
     border: 1px solid black;
     background: none;
     display: inline-block;
+    font-family:$corporativeFormFont;
 
     &:hover {
         background-color: black;
         color: white; 
+        
         animation-name: fillButtonProgressive;
         animation-duration: .5s;
     }
-}
 
-@keyframes fillButtonProgressive {
-    from {
-        background: none;
-        color: black;
+    &--little {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 20px;
+        padding-left: 20px;
     }
 
-    to {
-        background-color: black;
-        color: white; 
+    &--warning {
+        border: 0px solid transparent;
+        text-decoration: underline;
+        color: $warningColor;
+
+        &:hover {
+            background-color: transparent;
+            color: $warningColor;
+            animation: none;
+        }
+    }
+
+    &--update {
+        border: 1px solid $updateColor;
+        color: $updateColor;
+
+        &:hover {
+            background-color: $updateColor;
+            color: white;
+            animation-name: fillButtonProgressiveUpdate;
+            animation-duration: .5s;
+        }
+    }
+
+    &--new {
+        border: 1px solid $newColor;
+        color: $newColor;
+
+        &:hover {
+            background-color: $newColor;
+            color: white;
+            
+            animation-name: fillButtonProgressiveNew;
+            animation-duration: .5s;
+        }
     }
 }

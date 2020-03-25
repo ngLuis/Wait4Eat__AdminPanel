@@ -1,5 +1,5 @@
 <form class="c-form g--padding-horizontal-xl" [formGroup]="form" (ngSubmit)="sendForm()">
-    <h1 class="c-form__title">Entra y gestiona tu empresa</h1>
+    <h1 class="c-form__title">{{formTitle}}</h1>
     <div class="c-form__unity" *ngIf="formType === 'login'">
         <input class="c-form__input" formControlName='emailLogin' type="email" required/>
         <label class="c-form__input-label">Introduce tu Email</label>

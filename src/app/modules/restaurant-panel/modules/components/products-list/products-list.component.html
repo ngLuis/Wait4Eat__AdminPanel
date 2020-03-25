@@ -1,0 +1,23 @@
+<div class="c-section">
+    <div class="c-section__header">
+        <h1 class="c-section__title">Productos</h1>
+    </div>
+    <div class="c-section__sub-menu g--padding-m g--margin-right-l">
+        <a class="c-button c-button--new">Crear Nuevo</a>
+    </div>
+    <div class="c-section__content g--padding-m g--margin-top-xs">
+        <div class="l-columns l-columns--4-columns">
+            <div class="l-columns__area g--margin-xs g--margin-left-m" *ngFor='let product of products'>
+                <div class="c-card">
+                    <img class="c-card__img" src="../../../assets/img/carousel/2.jpg"/>
+                    <h1 class="c-card__title">{{product.name}}</h1>
+                    <div class="c-card__content">
+                        <p class="c-card__description">{{product.description}} <b>{{product.price}}€</b></p>
+                        <a class="c-button c-button--little c-button--warning" (click)='deleteProduct(product)'>Eliminar</a>
+                        <a class="c-button c-button--little c-button--update" (click)='updateProduct(product)'>Actualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

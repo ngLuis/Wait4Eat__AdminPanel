@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
 
   @Input() formType: Form;
   @Input() buttonText: string;
+  @Input() formTitle: string;
   @Output() formData: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }

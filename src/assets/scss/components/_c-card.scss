@@ -29,6 +29,10 @@
         margin-top: 55px;
     }
 
+    &__description {
+        margin-bottom: 15px;
+    }
+
     &:hover {
         box-shadow: 1px 8px 20px grey;
         -webkit-transition:  box-shadow .6s ease-in;

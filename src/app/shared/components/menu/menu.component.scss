@@ -35,12 +35,18 @@
         background-color: white;
     
         animation-name: bottomBarAppears;
-        animation-duration: 2s;  
+        animation-duration: .5s;  
     }
 
 }
 
 @keyframes bottomBarAppears {
-    from { width: 0%;}
-    to { width: 100%; }
+    from { 
+        width: 0%;
+        opacity: 0;
+    }
+    to { 
+        width: 100%;
+        opacity: 1;
+     }
 }

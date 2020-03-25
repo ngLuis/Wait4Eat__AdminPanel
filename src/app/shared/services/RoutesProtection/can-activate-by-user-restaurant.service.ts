@@ -21,7 +21,6 @@ export class CanActivateByUserRestaurantGuard implements CanActivate{
     let ownId = parseInt(this.cookieService.get('w4e-id'));
     let restaurantIdToActivate = parseInt(route.paramMap.get('id'));
     let ownRestaurants = this.restaurantService.getRestaurantsByOwner(ownId);
-    console.log('Hello')
     ownRestaurants.map( restaurant => {
         if ( restaurant.id === restaurantIdToActivate ) {
             canActivate = true;

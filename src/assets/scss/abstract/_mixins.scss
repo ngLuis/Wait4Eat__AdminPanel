@@ -1,0 +1,13 @@
+@mixin fillButtonAnimation($backgroundColorTransformed, $fontColorTransformed, $animationName) {
+    @keyframes #{$animationName} {
+        from {
+            background: none;
+            color: $backgroundColorTransformed;
+        }
+    
+        to {
+            background-color: $backgroundColorTransformed;
+            color: $fontColorTransformed; 
+        }
+    }
+}

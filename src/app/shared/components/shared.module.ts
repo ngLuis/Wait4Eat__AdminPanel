@@ -10,11 +10,11 @@ import { MenuModule } from './menu/menu.module';
   imports: [
     CommonModule,
     FormModule,
-    MenuModule
+    MenuModule,
   ],
   exports: [
     FormModule,
-    MenuModule
+    MenuModule,
   ]
 })
 export class SharedModule { }
