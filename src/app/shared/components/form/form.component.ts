@@ -22,6 +22,11 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     if (this.formType === Form.login ) {
       this.form = this.createFormLogin();
+    } else if (this.formType === Form.filterProducts) {
+      this.form = this.createFormFilterProducts();
+      this.form.get('productCategory').setValue('', {
+        onlySelf: true
+     })
     }
   }
 
@@ -32,8 +37,23 @@ export class FormComponent implements OnInit {
     })
   }
 
+  createFormFilterProducts() {
+    return new FormGroup({
+      productName: new FormControl('',),
+      productPrice: new FormControl('', []),
+      productCategory: new FormControl('')
+    })
+  }
+
   onResetForm() {
     this.form.reset();
+  }
+
+  categorySelected(category) {
+    this.form.get('productCategory').setValue(category.target.value, {
+      onlySelf: true
+   })
+   this.sendForm();
   }
 
   sendForm() {

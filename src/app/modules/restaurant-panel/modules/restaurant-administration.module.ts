@@ -4,6 +4,7 @@ import { RestaurantAdministrationRoutingModule } from './restaurant-administrati
 import { RestaurantAdministrationComponent } from './restaurant-administration.component';
 import { MenuModule } from 'src/app/shared/components/menu/menu.module';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { FilterBarModule } from 'src/app/shared/components/filter-bar/filter-bar.module';
 
 
 
@@ -16,6 +17,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
     CommonModule,
     RestaurantAdministrationRoutingModule,
     MenuModule,
+    FilterBarModule,
   ]
 })
 export class RestaurantAdministrationModule { }

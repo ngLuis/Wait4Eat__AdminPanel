@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { faHome, faUtensils, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { MenuOption } from '../../interfaces/MenuOption.interface';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';

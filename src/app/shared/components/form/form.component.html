@@ -1,4 +1,4 @@
-<form class="c-form g--padding-horizontal-xl" [formGroup]="form" (ngSubmit)="sendForm()">
+<form class="c-form" [formGroup]="form" (ngSubmit)="sendForm()">
     <h1 class="c-form__title">{{formTitle}}</h1>
     <div class="c-form__unity" *ngIf="formType === 'login'">
         <input class="c-form__input" formControlName='emailLogin' type="email" required/>
@@ -12,7 +12,20 @@
         <label class="c-form__error-message" *ngIf="submitted && form.get('passwordLogin').errors?.required">Debes completar este campo</label>
         <label class="c-form__error-message" *ngIf="submitted && form.get('passwordLogin').errors?.minlength">Debes tener al menos 6 caracteres</label>
     </div>
-    <div class="c-form__button">
+    <div class="c-form__unity">
+        <input class="c-form__input c-form__input--little" formControlName='productName' type="text" *ngIf="formType === 'filterProducts'" placeholder="Nombre..." (keyup)='sendForm()'/>
+    </div>
+    <div class="c-form__unity">
+        <input class="c-form__input c-form__input--little" formControlName='productPrice' type="text" *ngIf="formType === 'filterProducts'" placeholder="Precio 0.00" (keyup)='sendForm()'/>
+    </div>
+    <div class="c-form__unity">
+        <select class="c-form__select" formControlName='productCategory' *ngIf="formType === 'filterProducts'" (change)='categorySelected($event)'>
+            <option value="">Selecciona Categoria</option>
+            <option value="food">Comida</option>
+            <option value="drink">Bebida</option>
+        </select>
+    </div>
+    <div class="c-form__button" *ngIf="formType !== 'filterProducts'">
         <button class="c-button" type="submit">{{buttonText}}</button>
     </div>
 </form>

@@ -40,6 +40,26 @@
         outline: none;
         border: none;
         border-bottom: 1px solid #999999;
+
+        &--little {
+            padding: 10px 50px 10px 10px;
+            border: 1px solid black;
+            margin-right: 20px;
+            margin-top: -20px;
+
+            &::placeholder {
+                color: black;
+                opacity: .8;
+                padding-left: 5px;
+            }
+        }
+    }
+
+    &__select {
+        padding: 5px 50px 5px 5px;
+        border: 1px solid black;
+        margin-right: 20px;
+        margin-top: -20px;
     }
 
     &__input:focus ~ &__input-label {

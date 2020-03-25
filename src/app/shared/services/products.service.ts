@@ -7,13 +7,13 @@ import { Product } from '../interfaces/Product.interface';
 export class ProductsService {
 
   products: Array<Product> = [
-    {id: 0, name: 'Hamburguesa 100% vacuno', description: 'Jugosa hamburguesa', price: 9.85, type: 'Comida', idRestaurant: 0},
-    {id: 1, name: 'Coca.Cola', description: 'Refresco con gas', price: 1.20, type: 'Bebida', idRestaurant: 2},
-    {id: 2, name: 'Cerveza', description: 'Refresco con gas', price: 1.20, type: 'Bebida', idRestaurant: 0},
-    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.5, type: 'Comida', idRestaurant: 0},
-    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.5, type: 'Comida', idRestaurant: 0},
-    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.5, type: 'Comida', idRestaurant: 0},
-    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.5, type: 'Comida', idRestaurant: 0},
+    {id: 0, name: 'Hamburguesa 100% vacuno', description: 'Jugosa hamburguesa', price: 9.85, category: 'food', idRestaurant: 0},
+    {id: 1, name: 'Coca.Cola', description: 'Refresco con gas', price: 1.20, category: 'drink', idRestaurant: 2},
+    {id: 2, name: 'Cerveza', description: 'Refresco con gas', price: 1.20, category: 'drink', idRestaurant: 0},
+    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.58, category: 'food', idRestaurant: 0},
+    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.58, category: 'food', idRestaurant: 0},
+    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.5, category: 'food', idRestaurant: 0},
+    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.5, category: 'food', idRestaurant: 0},
   ]
 
   constructor() { }
