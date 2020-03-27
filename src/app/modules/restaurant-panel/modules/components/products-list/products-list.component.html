@@ -6,7 +6,7 @@
         <app-filter-bar [formType]='formType' (dataFiltered)='filterData($event)' (clearData)='clearData($event)'></app-filter-bar>
     </div>
     <div class="c-section__sub-menu g--padding-m g--margin-right-l">
-        <a class="c-button c-button--new">Crear Nuevo</a>
+        <a class="c-button c-button--new" (click)='createNewProduct()'>Crear Nuevo</a>
     </div>
     <div class="c-section__content g--padding-m g--margin-top-xs">
         <div class="l-columns l-columns--4-columns">

@@ -1,0 +1,5 @@
+<div class="c-dialog">
+    <h1 class="c-dialog__title">{{title}}</h1>
+</div>
+
+<app-form [formType]='formType' [buttonText]='buttonText' [itemData]='itemData' (formData)='sendToParent($event)'></app-form>

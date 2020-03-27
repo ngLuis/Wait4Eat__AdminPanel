@@ -9,7 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   declarations: [ConfirmationDialogComponent],
   imports: [
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
   ]
 })
 export class ConfirmationDialogModule { }

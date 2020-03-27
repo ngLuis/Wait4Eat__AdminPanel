@@ -1,4 +1,5 @@
 export enum Form {
     login = 'login',
-    filterProducts = 'filterProducts'
+    filterProducts = 'filterProducts',
+    crudProduct = 'crudProduct'
 }

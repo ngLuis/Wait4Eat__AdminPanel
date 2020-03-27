@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Form } from 'src/app/shared/enums/form.enum';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
+import { CrudDialogComponent } from 'src/app/shared/components/crud-dialog/crud-dialog.component';
 
 @Component({
   selector: 'app-products-list',
@@ -36,6 +37,20 @@ export class ProductsListComponent implements OnInit {
   }
 
   updateProduct(product) {
+    this.openCrudDialog('update', product).afterClosed().subscribe(response => {
+      if ( response !== undefined ) {
+        let productToUpdate: Product = {
+          id: product.id, 
+          name: response.productName, 
+          description: response.productDescription,
+          price: response.productPrice, 
+          category: response.productCategory, 
+          idRestaurant: parseInt(this.cookieService.get('w4e-restaurant'))
+        };
+        this.productService.update(product.id, productToUpdate);
+        this.refreshProductsList();
+      }
+    })
   }
 
   refreshProductsList() {
@@ -43,7 +58,6 @@ export class ProductsListComponent implements OnInit {
   }
 
   openModalConfirmation() {
-    const dialogConfig = new MatDialogConfig();
     return this.matDialog.open(ConfirmationDialogComponent, {
       width: '500px',
       height: '250px',
@@ -55,6 +69,35 @@ export class ProductsListComponent implements OnInit {
     });
   }
 
+  createNewProduct() {
+    this.openCrudDialog().afterClosed().subscribe(response => {
+      if (response !== undefined ) {
+        let product: Product = {
+          id: 60, 
+          name: response.productName, 
+          description: response.productDescription,
+          price: response.productPrice, 
+          category: response.productCategory, 
+          idRestaurant: parseInt(this.cookieService.get('w4e-restaurant'))
+        };
+        this.productService.insert(product);
+        this.refreshProductsList();
+      }
+    });
+  }
+
+  openCrudDialog(type = null, product = null) {
+    return this.matDialog.open(CrudDialogComponent, {
+      data: {
+        'title':'Crear producto',
+        'buttonText':'Crear',
+        'formType': Form.crudProduct,
+        'type': type,
+        'itemData': product
+      }
+    })
+  }
+
   clearData(clearData) {
     if (clearData) {
       this.refreshProductsList();
@@ -64,9 +107,9 @@ export class ProductsListComponent implements OnInit {
   filterData(filtering) {
     this.refreshProductsList();
 
-    let name = filtering.productName;
-    let price = filtering.productPrice;
-    let category = filtering.productCategory;
+    let name = filtering.productNameFilter;
+    let price = filtering.productPriceFilter;
+    let category = filtering.productCategoryFilter;
     let productsFiltered: Array<Product> = [];
 
     let arrayName: Array<Product> = [];

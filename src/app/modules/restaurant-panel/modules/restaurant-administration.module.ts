@@ -7,6 +7,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { FilterBarModule } from 'src/app/shared/components/filter-bar/filter-bar.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationDialogModule } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.module';
+import { CrudDialogModule } from 'src/app/shared/components/crud-dialog/crud-dialog.module';
 
 
 
@@ -21,7 +22,8 @@ import { ConfirmationDialogModule } from 'src/app/shared/components/confirmation
     MenuModule,
     FilterBarModule,
     MatDialogModule,
-    ConfirmationDialogModule
+    ConfirmationDialogModule,
+    CrudDialogModule
   ]
 })
 export class RestaurantAdministrationModule { }

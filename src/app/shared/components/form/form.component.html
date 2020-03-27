@@ -13,18 +13,32 @@
         <label class="c-form__error-message" *ngIf="submitted && form.get('passwordLogin').errors?.minlength">Debes tener al menos 6 caracteres</label>
     </div>
     <div class="c-form__unity">
-        <input class="c-form__input c-form__input--little" formControlName='productName' type="text" *ngIf="formType === 'filterProducts'" placeholder="Nombre..." (keyup)='sendForm()'/>
+        <input class="c-form__input c-form__input--little" formControlName='productNameFilter' type="text" *ngIf="formType === 'filterProducts'" placeholder="Nombre..." (keyup)='sendForm()'/>
+        <input class="c-form__input c-form__input--little" formControlName='productName' type="text" *ngIf="formType === 'crudProduct'" placeholder="Nombre..."/>
     </div>
     <div class="c-form__unity">
-        <input class="c-form__input c-form__input--little" formControlName='productPrice' type="text" *ngIf="formType === 'filterProducts'" placeholder="Precio 0.00" (keyup)='sendForm()'/>
+        <input class="c-form__input c-form__input--little" formControlName='productPriceFilter' type="text" *ngIf="formType === 'filterProducts'" placeholder="Precio 0.00" (keyup)='sendForm()'/>
+        <input class="c-form__input c-form__input--little" formControlName='productPrice' type="text" *ngIf="formType === 'crudProduct'" placeholder="Precio 0.00"/>
     </div>
     <div class="c-form__unity">
-        <select class="c-form__select" formControlName='productCategory' *ngIf="formType === 'filterProducts'" (change)='categorySelected($event)'>
+        <textarea class="c-form__input c-form__input--little" formControlName='productDescription' type="text" *ngIf="formType === 'crudProduct'" placeholder="Descripcion Producto"></textarea>
+    </div>
+    <div class="c-form__unity">
+        <select class="c-form__select" formControlName='productCategoryFilter' *ngIf="formType === 'filterProducts'" (change)='categorySelected($event)'>
+            <option value="">Selecciona Categoria</option>
+            <option value="food">Comida</option>
+            <option value="drink">Bebida</option>
+        </select>
+        <select class="c-form__select" formControlName='productCategory' *ngIf="formType === 'crudProduct'">
             <option value="">Selecciona Categoria</option>
             <option value="food">Comida</option>
             <option value="drink">Bebida</option>
         </select>
     </div>
+    <input type="file" accept='image/*' id="input-file" formControlName='file' *ngIf="formType === 'crudProduct'" (change)='onFileChange($event)'/>
+    <label class="c-form__file" for="input-file" *ngIf="formType === 'crudProduct'">
+        Selecciona Fichero...
+    </label>
     <div class="c-form__button" *ngIf="formType !== 'filterProducts'">
         <button class="c-button" type="submit">{{buttonText}}</button>
     </div>

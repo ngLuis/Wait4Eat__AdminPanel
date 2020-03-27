@@ -15,6 +15,7 @@ export class FormComponent implements OnInit {
   @Input() formType: Form;
   @Input() buttonText: string;
   @Input() formTitle: string;
+  @Input() itemData: any = undefined;
   @Output() formData: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
@@ -24,9 +25,19 @@ export class FormComponent implements OnInit {
       this.form = this.createFormLogin();
     } else if (this.formType === Form.filterProducts) {
       this.form = this.createFormFilterProducts();
-      this.form.get('productCategory').setValue('', {
+      this.form.get('productCategoryFilter').setValue('', {
         onlySelf: true
      })
+    } else if (this.formType === Form.crudProduct) {
+      this.form = this.createFormCrudProduct();
+      if ( this.itemData !== undefined ) {
+        this.form.patchValue({
+          productName: this.itemData.name,
+          productPrice: this.itemData.price,
+          productDescription: this.itemData.description,
+          productCategory: this.itemData.category
+        })
+      }
     }
   }
 
@@ -37,11 +48,21 @@ export class FormComponent implements OnInit {
     })
   }
 
-  createFormFilterProducts() {
+  createFormCrudProduct() {
     return new FormGroup({
       productName: new FormControl('',),
       productPrice: new FormControl('', []),
-      productCategory: new FormControl('')
+      productCategory: new FormControl(''),
+      productDescription: new FormControl(''),
+      file: new FormControl('')
+    })
+  }
+
+  createFormFilterProducts() {
+    return new FormGroup({
+      productNameFilter: new FormControl('',),
+      productPriceFilter: new FormControl('', []),
+      productCategoryFilter: new FormControl('')
     })
   }
 
@@ -49,8 +70,17 @@ export class FormComponent implements OnInit {
     this.form.reset();
   }
 
+  onFileChange(event) {
+    this.form.controls['file'].setValue('Hello');
+    // if ( event.target.files.length > 0 ) {
+    //   this.form.patchValue({
+    //     file: event.target.files[0]
+    //   })
+    // }
+  }
+
   categorySelected(category) {
-    this.form.get('productCategory').setValue(category.target.value, {
+    this.form.get('productCategoryFilter').setValue(category.target.value, {
       onlySelf: true
    })
    this.sendForm();
@@ -62,5 +92,4 @@ export class FormComponent implements OnInit {
       this.formData.emit(this.form.value);
     }
   }
-  
 }
