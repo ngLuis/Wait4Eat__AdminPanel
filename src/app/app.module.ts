@@ -32,7 +32,7 @@ import { FormModule } from './shared/components/form/form.module';
       preventDuplicates: true,
     }),
     MenuModule,
-    FormModule
+    FormModule,
   ],
   providers: [
     ImagesService,

@@ -3,6 +3,8 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 import { Product } from 'src/app/shared/interfaces/Product.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { Form } from 'src/app/shared/enums/form.enum';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-products-list',
@@ -16,7 +18,8 @@ export class ProductsListComponent implements OnInit {
 
   constructor(
     private productService: ProductsService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private matDialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -24,8 +27,12 @@ export class ProductsListComponent implements OnInit {
   }
 
   deleteProduct(product) {
-    this.productService.deleteProductById(product.id);
-    this.refreshProductsList();
+    this.openModalConfirmation().afterClosed().subscribe(dialogResponse => {
+      if (dialogResponse) {
+        this.productService.deleteProductById(product.id);
+        this.refreshProductsList();
+      }
+    })
   }
 
   updateProduct(product) {
@@ -35,6 +42,19 @@ export class ProductsListComponent implements OnInit {
     this.products = this.productService.getProductsByIdRestaurant(parseInt(this.cookieService.get('w4e-restaurant')));
   }
 
+  openModalConfirmation() {
+    const dialogConfig = new MatDialogConfig();
+    return this.matDialog.open(ConfirmationDialogComponent, {
+      width: '500px',
+      height: '250px',
+      data: {
+        'title':'Borrar producto',
+        'description':'¿Deseas borrar el producto?',
+        'buttonText':'Eliminar'
+      }
+    });
+  }
+
   clearData(clearData) {
     if (clearData) {
       this.refreshProductsList();
@@ -42,7 +62,6 @@ export class ProductsListComponent implements OnInit {
   }
 
   filterData(filtering) {
-    console.log(filtering)
     this.refreshProductsList();
 
     let name = filtering.productName;

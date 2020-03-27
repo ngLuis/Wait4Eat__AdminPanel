@@ -1,0 +1,8 @@
+<div class="c-dialog">
+    <h1 class="c-dialog__title">{{title}}</h1>
+    <p class="c-dialog__description">{{description}}</p>
+    <div class="c-dialog__footer">
+        <a class="c-button c-button--little" (click)='closeOnRefuse()'>Cerrar</a>
+        <a class="c-button c-button--little c-button--warning" (click)='closeOnAllow()'>{{buttonText}}</a>
+    </div>
+</div>

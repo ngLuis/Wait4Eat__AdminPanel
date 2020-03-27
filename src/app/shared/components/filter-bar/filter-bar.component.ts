@@ -31,7 +31,7 @@ export class FilterBarComponent implements OnInit {
   }
 
   clearList() {
-    this.clearData.emit('Hello');
+    this.clearData.emit(true);
   }
 
 }

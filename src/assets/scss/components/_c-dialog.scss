@@ -1,0 +1,12 @@
+.c-dialog {
+
+    font-family: $corporativeTitlesFont;
+
+    &__description {
+        font-family: $corporativeFormFont;
+    }
+
+    &__footer {
+        margin-top: 75px;
+    }
+}
