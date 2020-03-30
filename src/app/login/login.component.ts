@@ -23,6 +23,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.cookieService.check('w4e-email') && this.cookieService.check('w4e-type')) {
+      let type: number = parseInt(this.cookieService.get('w4e-type'));
+      if (type === 1) {
+        this.router.navigate(['/restaurant-panel']);
+      } else if (type === 2) {
+        //Redirects to admin panel
+      }
+    }
   }
 
   logInSystem(credentials) {
@@ -53,5 +61,4 @@ export class LoginComponent implements OnInit {
       this.toastService.showError('Inicio de sesión fallido', 'Las credenciales no son correctas');
     }
   }
-
 }
