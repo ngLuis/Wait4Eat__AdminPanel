@@ -21,6 +21,11 @@ export class RestaurantPanelComponent implements OnInit {
 
   ngOnInit() {
     this.restaurants = this.restaurantService.getRestaurantsByOwner(parseInt(this.cookieService.get('w4e-id')));
+    if (this.restaurants.length === 1) {
+      let id = this.restaurants[0].id;
+      this.router.navigate(['/restaurant-panel/' + id]);
+      this.cookieService.set('w4e-restaurant', id.toString());
+    }
   }
 
   registerRestaurantManipulation(idRestaurant) {
