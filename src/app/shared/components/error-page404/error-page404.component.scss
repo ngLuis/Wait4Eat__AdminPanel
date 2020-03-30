@@ -1,0 +1,35 @@
+.c-page-404 {
+
+    text-decoration: none;
+
+    &__title {
+        font-weight: bold;
+        font-size: 100px;
+    }
+
+    &__error-code {
+        font-weight: bold;
+        font-size: 55px;
+    }
+
+    &__text {
+        font-size: 20px;
+        width: 400px;
+        text-align: justify;
+        display: inline-block;
+    }
+
+    &__dialog {
+        display: inline-block;
+        font-size: 20px;
+        width: 150px;
+        position: absolute;
+        top: 300px;
+    }
+
+    &__copy-text {
+        text-align: center;
+        margin-top: 150px;
+    }
+
+}
