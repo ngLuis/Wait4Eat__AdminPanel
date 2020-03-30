@@ -2,32 +2,6 @@
 
 .c-filter {
 
-    &__icon {
-        width: 100px;
-        height: 100px;
-        border-radius: 100px;
-
-        background-color: black;
-
-        position: fixed;
-        right: 20px;
-        bottom: 75px;
-
-        text-align: center;
-        line-height: 100px;
-        font-size: 35px;
-        color: white;
-
-        &--secondary {
-            bottom: 185px; 
-            background-color: lighten($updateColor, 0%);
-        }
-        
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
     &__content {
         position: fixed;
         right: 85px;

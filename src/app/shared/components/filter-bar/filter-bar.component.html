@@ -1,8 +1,8 @@
 <div class="c-filter">
-    <div class="c-filter__icon c-filter__icon--secondary" (click)="clearList()">
+    <div class="c-icon c-icon--secondary c-filter__icon c-filter__icon--secondary" (click)="clearList()">
         <fa-icon [icon]="faBroom"></fa-icon>
     </div>
-    <div class="c-filter__icon" (click)="showForm()">
+    <div class="c-icon c-filter__icon" (click)="showForm()">
         <fa-icon [icon]="faFilter"></fa-icon>
     </div>
     <div class="c-filter__content g--margin-horizontal-m" style="text-align: right;" *ngIf='formVisible'>

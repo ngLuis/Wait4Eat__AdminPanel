@@ -20,7 +20,7 @@ import { FormModule } from './shared/components/form/form.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    CarouselComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

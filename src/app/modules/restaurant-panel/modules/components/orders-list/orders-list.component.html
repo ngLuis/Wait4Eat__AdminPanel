@@ -1,0 +1,29 @@
+<div class="c-section">
+    <div class="c-section__header">
+        <h1 class="c-section__title">Pedidos</h1>
+    </div>
+    <div class="c-section__content g--margin-top-xs g--padding-left-m g--padding-right-m">
+        <div class="c-table g--margin-left-xl g--margin-right-xl">
+            <table class="c-table__content">
+                <tr>
+                    <th class="c-table__header-item">Id</th>
+                    <th class="c-table__header-item">Fecha</th>
+                    <th class="c-table__header-item">Hora</th>
+                    <th class="c-table__header-item">Precio</th>
+                    <th class="c-table__header-item">Acciones</th>
+                </tr>
+                <tr *ngFor='let order of orders'>
+                    <td class="c-table__body-item">{{order.id}}</td>
+                    <td class="c-table__body-item">{{order.date}}</td>
+                    <td class="c-table__body-item">{{order.time}}</td>
+                    <td class="c-table__body-item">{{order.price}}</td>
+                    <td class="c-table__body-item c-table--center-content" *ngIf='order.state === 0'>
+                        <a class="c-button c-button--little" (click)='validateOrder(order.id)'>Pagar</a>
+                    </td>
+                    <td class="c-table__body-item" *ngIf='order.state === 1'>Producto pagado</td>
+                </tr>
+            </table>
+        </div>
+        <fa-icon class="c-icon c-icon--secondary" [icon]='qrCode' (click)='validateOrderWithReader()'></fa-icon>
+    </div>
+</div>

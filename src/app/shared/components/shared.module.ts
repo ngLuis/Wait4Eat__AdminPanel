@@ -4,6 +4,7 @@ import { FormModule } from './form/form.module';
 import { MenuModule } from './menu/menu.module';
 import { FilterBarModule } from './filter-bar/filter-bar.module';
 import { ConfirmationDialogModule } from './confirmation-dialog/confirmation-dialog.module';
+import { ScannerModalModule } from './scanner-modal/scanner-modal.module';
 
 @NgModule({
   declarations: [],
@@ -12,13 +13,15 @@ import { ConfirmationDialogModule } from './confirmation-dialog/confirmation-dia
     FormModule,
     MenuModule,
     FilterBarModule,
-    ConfirmationDialogModule
+    ConfirmationDialogModule,
+    ScannerModalModule
   ],
   exports: [
     FormModule,
     MenuModule,
     FilterBarModule,
-    ConfirmationDialogModule
+    ConfirmationDialogModule,
+    ScannerModalModule
   ]
 })
 export class SharedModule { }

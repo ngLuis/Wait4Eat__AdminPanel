@@ -1,0 +1,33 @@
+.c-table {
+    height: 600px;
+    overflow-y: scroll;
+    box-shadow: .8px .9px 3px grey;
+
+    &__content {
+        width: 100%;
+    }
+
+    &__header-item {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+        text-align: left;
+
+        background-color: black;
+        color: white;
+        box-sizing: border-box;
+
+        position: sticky;
+        top: 0;
+    }
+
+    &__body-item {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    &--center-content {
+        text-align: center;
+    }
+}

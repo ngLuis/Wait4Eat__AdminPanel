@@ -3,7 +3,7 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 import { Product } from 'src/app/shared/interfaces/Product.interface';
 import { CookieService } from 'ngx-cookie-service';
 import { Form } from 'src/app/shared/enums/form.enum';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 import { CrudDialogComponent } from 'src/app/shared/components/crud-dialog/crud-dialog.component';
 

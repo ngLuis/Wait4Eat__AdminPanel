@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form } from 'src/app/shared/enums/form.enum';
 import { MenuOption } from 'src/app/shared/interfaces/MenuOption.interface';
-import { faHome, faUtensils } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUtensils, faFolderPlus } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,7 +15,8 @@ export class RestaurantAdministrationComponent implements OnInit {
 
   options: Array<MenuOption> = [
     {name: 'Inicio', icon: faHome, routeLink: this.regularUrl + '/home'},
-    {name: 'Productos', icon: faUtensils, routeLink: this.regularUrl + '/products'}
+    {name: 'Productos', icon: faUtensils, routeLink: this.regularUrl + '/products'},
+    {name: 'Pedidos', icon: faFolderPlus, routeLink: this.regularUrl + '/orders'}
   ]
 
   constructor(

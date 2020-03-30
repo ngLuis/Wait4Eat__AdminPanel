@@ -8,13 +8,16 @@ import { FilterBarModule } from 'src/app/shared/components/filter-bar/filter-bar
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmationDialogModule } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.module';
 import { CrudDialogModule } from 'src/app/shared/components/crud-dialog/crud-dialog.module';
+import { OrdersListComponent } from './components/orders-list/orders-list.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
 @NgModule({
   declarations: [
     RestaurantAdministrationComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    OrdersListComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +26,8 @@ import { CrudDialogModule } from 'src/app/shared/components/crud-dialog/crud-dia
     FilterBarModule,
     MatDialogModule,
     ConfirmationDialogModule,
-    CrudDialogModule
+    CrudDialogModule,
+    FontAwesomeModule
   ]
 })
 export class RestaurantAdministrationModule { }
