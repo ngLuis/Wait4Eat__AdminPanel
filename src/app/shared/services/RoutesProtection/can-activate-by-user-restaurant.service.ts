@@ -28,8 +28,8 @@ export class CanActivateByUserRestaurantGuard implements CanActivate{
     });
 
     if ( !canActivate ) {
-      
         this.toastService.showError('Acceso denegado', 'Solo puedes gestionar tus restaurantes');
+        this.cookieService.delete('w4e-restaurant');
         this.router.navigate(['/restaurant-panel']);
     }
 

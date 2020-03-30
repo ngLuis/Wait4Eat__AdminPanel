@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faStore } from '@fortawesome/free-solid-svg-icons';
 import { MenuOption } from '../../interfaces/MenuOption.interface';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { RestaurantsService } from '../../services/restaurants.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,15 +13,23 @@ import { CookieService } from 'ngx-cookie-service';
 export class MenuComponent implements OnInit {
 
   faSignOutAlt = faSignOutAlt;
+  faStore = faStore;
+
+  showRestaurantsOption: boolean = false;
 
   @Input() options: Array<MenuOption>;
 
   constructor(
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private restaurantService: RestaurantsService
   ) { }
 
   ngOnInit(): void {
+    let restaurants = this.restaurantService.getRestaurantsByOwner(parseInt(this.cookieService.get('w4e-id')));
+    if ( restaurants.length > 1 ) {
+      this.showRestaurantsOption = true;
+    }
   }
 
   logOut() {
@@ -29,6 +38,11 @@ export class MenuComponent implements OnInit {
     this.cookieService.delete('w4e-id');
     this.cookieService.delete('w4e-restaurant');
     this.router.navigate(['/login']);
+  }
+
+  backToRestaurants() {
+    this.cookieService.delete('w4e-restaurant');
+    this.router.navigate(['/restaurant-panel']);
   }
 
 }

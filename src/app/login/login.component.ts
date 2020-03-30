@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.cookieService.check('w4e-email'));
     if (this.cookieService.check('w4e-email') && this.cookieService.check('w4e-type')) {
       let type: number = parseInt(this.cookieService.get('w4e-type'));
       if (type === 1) {

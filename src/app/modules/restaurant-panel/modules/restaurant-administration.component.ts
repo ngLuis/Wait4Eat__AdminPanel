@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Form } from 'src/app/shared/enums/form.enum';
 import { MenuOption } from 'src/app/shared/interfaces/MenuOption.interface';
-import { faHome, faUtensils, faFolderPlus } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUtensils, faFolderPlus, faStore } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

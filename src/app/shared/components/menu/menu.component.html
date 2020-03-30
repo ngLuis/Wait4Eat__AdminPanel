@@ -9,4 +9,9 @@
         Cerrar Sesión
         <div class="c-menu__bottom-bar"></div>
     </li>
+    <li class="c-menu__option" (click)='backToRestaurants()' *ngIf="showRestaurantsOption">
+        <fa-icon class="c-menu__icon" [icon]="faStore"></fa-icon>
+        Mis Restaurantes
+        <div class="c-menu__bottom-bar"></div>
+    </li>
 </ul>
