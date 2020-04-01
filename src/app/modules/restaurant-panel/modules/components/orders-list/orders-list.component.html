@@ -2,6 +2,9 @@
     <div class="c-section__header">
         <h1 class="c-section__title">Pedidos</h1>
     </div>
+    <div class="c-section__menu g--padding-m g--margin-right-l">
+        <app-filter-bar [formType]="formType" (dataFiltered)='getOrderMethod($event)'></app-filter-bar>
+    </div>
     <div class="c-section__content g--margin-top-xs g--padding-left-m g--padding-right-m">
         <div class="c-table g--margin-left-xl g--margin-right-xl">
             <table class="c-table__content">

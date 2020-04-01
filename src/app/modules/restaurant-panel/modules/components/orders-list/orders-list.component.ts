@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 import { ScannerModalComponent } from 'src/app/shared/components/scanner-modal/scanner-modal.component';
 import { ToastService } from 'src/app/shared/services/toast.service';
+import { Form } from 'src/app/shared/enums/form.enum';
 
 @Component({
   selector: 'app-orders-list',
@@ -18,6 +19,8 @@ export class OrdersListComponent implements OnInit {
 
   orders: Array<Order> = [];
   qrCode: IconDefinition = faQrcode;
+
+  formType: Form = Form.filterOrder;
 
   constructor(
     private orderService: OrdersService,
@@ -81,6 +84,20 @@ export class OrdersListComponent implements OnInit {
 
   showToastError() {
     this.toastService.showError('Pago Erroneo', 'El pago no se ha podido realizar');
+  }
+
+  getOrderMethod(ortherMethod) {
+    let ortherState = ortherMethod.orderState;
+
+    if ( ortherState === '' ) {
+      this.refreshList();
+    } else {
+      this.orders = this.orderService.getOrdersByState(this.coockieService.get('w4e-restaurant'), parseInt(ortherState));
+    }
+  }
+
+  refreshList() {
+    this.orders = this.orderService.getAllOrders(this.coockieService.get('w4e-restaurant'));
   }
 
 }

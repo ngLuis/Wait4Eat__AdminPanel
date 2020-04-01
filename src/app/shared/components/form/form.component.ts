@@ -38,6 +38,8 @@ export class FormComponent implements OnInit {
           productCategory: this.itemData.category
         })
       }
+    } else if (this.formType === Form.filterOrder) {
+      this.form = this.createFormFilterOrder();
     }
   }
 
@@ -63,6 +65,12 @@ export class FormComponent implements OnInit {
       productNameFilter: new FormControl('',),
       productPriceFilter: new FormControl('', []),
       productCategoryFilter: new FormControl('')
+    })
+  }
+
+  createFormFilterOrder() {
+    return new FormGroup({
+      orderState: new FormControl(''),
     })
   }
 

@@ -39,7 +39,12 @@
     <label class="c-form__file" for="input-file" *ngIf="formType === 'crudProduct'">
         Selecciona Fichero...
     </label>
-    <div class="c-form__button" *ngIf="formType !== 'filterProducts'">
+    <select class="c-form__select" formControlName='orderState' *ngIf="formType === 'filterOrder'" (change)='sendForm()'>
+        <option value="" value="">Selecciona Estado</option>
+        <option value="pending" value="0">Pendiente de pago</option>
+        <option value="payed" value="1">Pagado</option>
+    </select>
+    <div class="c-form__button" *ngIf="formType !== 'filterProducts' && formType !== 'filterOrder'">
         <button class="c-button" type="submit">{{buttonText}}</button>
     </div>
 </form>

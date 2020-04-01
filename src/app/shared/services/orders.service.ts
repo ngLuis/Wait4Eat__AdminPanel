@@ -39,4 +39,8 @@ export class OrdersService {
       }
     });
   }
+
+  getOrdersByState(idRestaurant, state) {
+    return this.getAllOrders(idRestaurant).filter( order => order.state === state);
+  }
 }
