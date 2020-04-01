@@ -11,7 +11,23 @@
         }
     }
 
-    @media ( max-width: 512px ) {
+    @media ( max-width: 1536px ) {
+        @for $i from 1 through 12 {
+            &--#{$i}-columns\@small-desktop {
+                grid-template-columns: repeat($i, 1fr);
+            }
+        } 
+    }
+
+    @media ( max-width: 1293px ) {
+        @for $i from 1 through 12 {
+            &--#{$i}-columns\@tablet {
+                grid-template-columns: repeat($i, 1fr);
+            }
+        } 
+    }
+
+    @media ( max-width: 900px ) {
         @for $i from 1 through 12 {
             &--#{$i}-columns\@phone {
                 grid-template-columns: repeat($i, 1fr);

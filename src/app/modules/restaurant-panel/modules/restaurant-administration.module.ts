@@ -10,14 +10,16 @@ import { ConfirmationDialogModule } from 'src/app/shared/components/confirmation
 import { CrudDialogModule } from 'src/app/shared/components/crud-dialog/crud-dialog.module';
 import { OrdersListComponent } from './components/orders-list/orders-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { ChartComponent } from './components/chart/chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
     RestaurantAdministrationComponent,
     ProductsListComponent,
-    OrdersListComponent
+    OrdersListComponent,
+    ChartComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatDialogModule,
     ConfirmationDialogModule,
     CrudDialogModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ChartsModule
   ]
 })
 export class RestaurantAdministrationModule { }

@@ -37,6 +37,14 @@ export class ProductsService {
     return productsByRestaurant;
   }
 
+  getNumberOfFood(idRestaurant) {
+    return this.getProductsByIdRestaurant(idRestaurant).filter( product => product.category === 'food');
+  }
+
+  getNumberOfDrink(idRestaurant) {
+    return this.getProductsByIdRestaurant(idRestaurant).filter( product => product.category === 'drink');
+  }
+
   insert(product) {
     let length = this.products.length;
     this.products.splice(length, 0, product);

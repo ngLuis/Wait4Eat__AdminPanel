@@ -7,15 +7,15 @@ import { Order } from '../interfaces/Order.interface';
 export class OrdersService {
 
   ordersList: Array<Order> = [
-    {id: 1025, date: '10/5/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
-    {id: 1026, date: '10/5/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
-    {id: 1027, date: '10/5/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
-    {id: 1028, date: '10/5/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
-    {id: 1029, date: '10/5/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
-    {id: 1030, date: '10/5/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
-    {id: 1031, date: '10/5/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
-    {id: 1032, date: '10/5/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
-    {id: 1033, date: '10/5/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
+    {id: 1025, date: '10/1/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
+    {id: 1026, date: '10/1/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
+    {id: 1027, date: '10/2/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
+    {id: 1028, date: '10/3/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
+    {id: 1029, date: '10/3/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
+    {id: 1030, date: '10/4/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
+    {id: 1031, date: '10/4/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
+    {id: 1032, date: '10/1/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
+    {id: 1033, date: '10/4/2020', time: '22:22', state: 1, price: 35.85, idRestaurant: 0},
     {id: 1034, date: '10/5/2020', time: '22:22', state: 0, price: 35.85, idRestaurant: 0},
     {id: 1035, date: '10/5/2020', time: '22:22', state: 0, price: 35.85, idRestaurant: 0},
     {id: 1036, date: '10/5/2020', time: '22:22', state: 0, price: 35.85, idRestaurant: 0},
@@ -42,5 +42,18 @@ export class OrdersService {
 
   getOrdersByState(idRestaurant, state) {
     return this.getAllOrders(idRestaurant).filter( order => order.state === state);
+  }
+
+  getOrdersByMonth(idRestaurant) {
+    let allPayedOrders = this.getOrdersByState(idRestaurant, 1);
+    let orderByMonth = [[],[],[],[],[],[],[],[],[],[],[],[]];
+
+    allPayedOrders.map(order => {
+      let dateSplitted = order.date.split('/');
+      let dateParsed = new Date(parseInt(dateSplitted[2]),parseInt(dateSplitted[1]),parseInt(dateSplitted[0]));
+      orderByMonth[dateParsed.getMonth()-1].push(order);
+    })
+
+    return orderByMonth;
   }
 }
