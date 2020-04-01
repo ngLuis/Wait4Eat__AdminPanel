@@ -20,7 +20,7 @@ export class CanActivateByUserLoggedGuard implements CanActivate {
         canActivate = true;
         this.route.navigate(['/restaurant-panel']);
       } else {
-        this.route.navigate(['/login']);
+        this.route.navigate(['/admin-panel']);
       }
     }
     return canActivate;

@@ -3,7 +3,6 @@ import { Label, MultiDataSet, Color } from 'ng2-charts';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ChartType, ChartDataSets, ChartOptions } from 'chart.js';
-import { threadId } from 'worker_threads';
 import { OrdersService } from 'src/app/shared/services/orders.service';
 
 

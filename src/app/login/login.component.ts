@@ -26,10 +26,11 @@ export class LoginComponent implements OnInit {
     console.log(this.cookieService.check('w4e-email'));
     if (this.cookieService.check('w4e-email') && this.cookieService.check('w4e-type')) {
       let type: number = parseInt(this.cookieService.get('w4e-type'));
+      console.log(type)
       if (type === 1) {
         this.router.navigate(['/restaurant-panel']);
       } else if (type === 2) {
-        //Redirects to admin panel
+        this.router.navigate(['/admin-panel']);
       }
     }
   }
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
         }
 
         if (userLogged.type === 2) {
+          this.router.navigate(['/admin-panel']);
           this.toastService.showSuccess('Inicio de sesión correcto', 'Ya puedes administrar la aplicación');
         }
         

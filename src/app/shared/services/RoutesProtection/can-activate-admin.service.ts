@@ -5,7 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root'
 })
-export class CanActivateByTypeGuard implements CanActivate{
+export class CanActivateAdmin implements CanActivate{
 
   constructor(
     private cookieService: CookieService,
@@ -14,7 +14,7 @@ export class CanActivateByTypeGuard implements CanActivate{
 
   canActivate() {
     let canActivate = false;
-    if (parseInt(this.cookieService.get('w4e-type')) === 1) {
+    if (parseInt(this.cookieService.get('w4e-type')) === 2) {
         canActivate = true;
     } else {
       this.router.navigate(['/']);
