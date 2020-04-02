@@ -14,7 +14,7 @@ export class AdminPanelComponent implements OnInit {
   regularUrl = '/admin-panel/';
 
   options: Array<MenuOption> = [
-    {name: 'Inicio', icon: faHome, routeLink: this.regularUrl + '/'},
+    {name: 'Inicio', icon: faHome, routeLink: this.regularUrl + '/home'},
     {name: 'Restaurantes', icon: faStore, routeLink: this.regularUrl + '/'},
     {name: 'Usuarios', icon: faUsers, routeLink: this.regularUrl + '/'}
   ]

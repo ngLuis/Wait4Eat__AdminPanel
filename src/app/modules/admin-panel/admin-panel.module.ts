@@ -4,12 +4,14 @@ import { AdminPanelComponent } from './admin-panel.component';
 import { AdminPanelRoutingModule } from './admin-panel-routing.module';
 import { MenuModule } from 'src/app/shared/components/menu/menu.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './components/home/home.component';
 
 
 
 @NgModule({
   declarations: [
-    AdminPanelComponent
+    AdminPanelComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

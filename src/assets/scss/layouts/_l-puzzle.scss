@@ -1,0 +1,20 @@
+.l-puzzle {
+
+    display: grid;
+    grid-template-areas: "right top"
+                           "right bottom";
+    grid-template-columns: .5fr .5fr;
+
+    &__right {
+        grid-area: right;
+    }
+
+    &__top {
+        grid-area: top;
+    }
+
+    &__bottom {
+        grid-area: bottom;
+    }
+
+}
