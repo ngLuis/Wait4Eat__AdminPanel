@@ -8,7 +8,7 @@ export class RestaurantsService {
 
   restaurants: Array<Restaurant> = [
     {id: 0, name: 'Pizzeria Toni', cif: 'A54523652F', idOwner: 1},
-    {id: 1, name: 'Mc Donalds', cif: 'E85632541A', idOwner: 2},
+    {id: 1, name: 'Mc Donalds', cif: 'E85632541A', idOwner: 1},
     {id: 2, name: 'Goiko Grill', cif: 'E85632541A', idOwner: 1},
   ]
 
@@ -22,5 +22,24 @@ export class RestaurantsService {
       }
     })
     return ownerRestaurants;
+  }
+
+  getAllRestaurants() {
+    return this.restaurants;
+  }
+
+  createRestaurant(restaurant) {
+    this.restaurants.splice(this.restaurants.length, 0, restaurant);
+  }
+
+  updateRestaurant(idRestaurant, newRestaurant) {
+    console.log(idRestaurant, newRestaurant)
+    let index = this.restaurants.findIndex( restaurant => restaurant.id === idRestaurant);
+    this.restaurants.splice(index, 1, newRestaurant);
+  }
+
+  deleteRestaurant(idRestaurant) {
+    let index = this.restaurants.findIndex( restaurant => restaurant.id === idRestaurant);
+    this.restaurants.splice(index, 1);
   }
 }

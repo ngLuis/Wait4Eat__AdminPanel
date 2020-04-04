@@ -1,0 +1,24 @@
+<div class="c-section">
+    <div class="c-section__header">
+        <h1 class="c-section__title">Restaurantes</h1>
+    </div>
+    <div class="c-section__menu g--padding-m g--margin-right-l">
+        <app-filter-bar [formType]='formType' (dataFiltered)='filterData($event)' (clearData)='clearData($event)'></app-filter-bar>
+        <a class="c-button c-button--new" (click)='createNewRestaurant()'>Crear Nuevo</a>
+    </div>
+    <div class="c-section__content g--padding-m g--margin-top-xs">
+        <div class="l-columns l-columns--4-columns l-columns--3-columns@small-desktop l-columns--2-columns@tablet l-columns--1-columns@phone">
+            <div class="l-columns__area g--margin-xs g--margin-left-m" *ngFor='let restaurant of restaurants'>
+                <div class="c-card">
+                    <img class="c-card__img" src="../../../assets/img/carousel/2.jpg"/>
+                    <h1 class="c-card__title">{{restaurant.name}}</h1>
+                    <div class="c-card__content">
+                        <p class="c-card__description"><b>{{restaurant.cif}}</b></p>
+                        <a class="c-button c-button--little c-button--warning" (click)='deleteRestaurant(restaurant)'>Eliminar</a>
+                        <a class="c-button c-button--little c-button--update" (click)='updateRestaurant(restaurant)'>Actualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

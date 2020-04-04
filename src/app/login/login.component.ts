@@ -23,10 +23,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.cookieService.check('w4e-email'));
     if (this.cookieService.check('w4e-email') && this.cookieService.check('w4e-type')) {
       let type: number = parseInt(this.cookieService.get('w4e-type'));
-      console.log(type)
       if (type === 1) {
         this.router.navigate(['/restaurant-panel']);
       } else if (type === 2) {

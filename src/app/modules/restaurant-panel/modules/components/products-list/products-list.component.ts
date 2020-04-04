@@ -6,6 +6,7 @@ import { Form } from 'src/app/shared/enums/form.enum';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 import { CrudDialogComponent } from 'src/app/shared/components/crud-dialog/crud-dialog.component';
+import { ToastService } from 'src/app/shared/services/toast.service';
 
 @Component({
   selector: 'app-products-list',
@@ -20,7 +21,8 @@ export class ProductsListComponent implements OnInit {
   constructor(
     private productService: ProductsService,
     private cookieService: CookieService,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private toastService: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +34,9 @@ export class ProductsListComponent implements OnInit {
       if (dialogResponse) {
         this.productService.deleteProductById(product.id);
         this.refreshProductsList();
+        this.toastService.showSuccess('Operación Correcta', 'Producto borrado satisfactoriamente');
+      } else {
+        this.toastService.showError('Operación Fallida', 'No hemos podido eliminar el producto');
       }
     })
   }
@@ -49,6 +54,9 @@ export class ProductsListComponent implements OnInit {
         };
         this.productService.update(product.id, productToUpdate);
         this.refreshProductsList();
+        this.toastService.showSuccess('Operación Exitosa', 'Producto actualizado correctamente');
+      } else {
+        this.toastService.showError('Operación Fallida', 'No hemos podido actualizar el producto');
       }
     })
   }
@@ -82,6 +90,9 @@ export class ProductsListComponent implements OnInit {
         };
         this.productService.insert(product);
         this.refreshProductsList();
+        this.toastService.showSuccess('Operación Correcta', 'El producto se ha creado satisfactoriamente');
+      } else {
+        this.toastService.showError('Operación fallida', 'El producto no se ha podido crear');
       }
     });
   }

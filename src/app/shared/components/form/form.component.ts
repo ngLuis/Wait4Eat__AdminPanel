@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Form } from '../../enums/form.enum';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../interfaces/User.interface';
 
 @Component({
   selector: 'app-form',
@@ -11,6 +13,7 @@ export class FormComponent implements OnInit {
   
   form: FormGroup;
   submitted: boolean;
+  users: Array<User> = [];
 
   @Input() formType: Form;
   @Input() buttonText: string;
@@ -18,7 +21,9 @@ export class FormComponent implements OnInit {
   @Input() itemData: any = undefined;
   @Output() formData: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+  ) { }
 
   ngOnInit() {
     if (this.formType === Form.login ) {
@@ -40,6 +45,18 @@ export class FormComponent implements OnInit {
       }
     } else if (this.formType === Form.filterOrder) {
       this.form = this.createFormFilterOrder();
+    } else if (this.formType === Form.filterRestaurants) {
+      this.form = this.createFormFilterRestaurants();
+    } else if (this.formType === Form.crudRestaurant) {
+      this.users = this.authService.getUsersByType(1);
+      this.form = this.createFormRestaurants();
+      if ( this.itemData !== undefined ) {
+        this.form.patchValue({
+          restaurantName: this.itemData.name,
+          restaurantCif: this.itemData.cif,
+          restaurantOwner: this.itemData.idOwner,
+        })
+      }
     }
   }
 
@@ -52,10 +69,10 @@ export class FormComponent implements OnInit {
 
   createFormCrudProduct() {
     return new FormGroup({
-      productName: new FormControl('',),
-      productPrice: new FormControl('', []),
-      productCategory: new FormControl(''),
-      productDescription: new FormControl(''),
+      productName: new FormControl('', [Validators.required]),
+      productPrice: new FormControl('', [Validators.required]),
+      productCategory: new FormControl('', [Validators.required]),
+      productDescription: new FormControl('', [Validators.required]),
       file: new FormControl('')
     })
   }
@@ -71,6 +88,21 @@ export class FormComponent implements OnInit {
   createFormFilterOrder() {
     return new FormGroup({
       orderState: new FormControl(''),
+    })
+  }
+
+  createFormFilterRestaurants() {
+    return new FormGroup({
+      restaurantNameFilter: new FormControl('',),
+      restaurantCifFilter: new FormControl('', [])
+    })
+  }
+
+  createFormRestaurants() {
+    return new FormGroup({
+      restaurantName: new FormControl('', [Validators.required]),
+      restaurantCif: new FormControl('', [Validators.required]),
+      restaurantOwner: new FormControl('', [Validators.required, Validators.required])
     })
   }
 

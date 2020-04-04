@@ -15,13 +15,22 @@
     <div class="c-form__unity">
         <input class="c-form__input c-form__input--little" formControlName='productNameFilter' type="text" *ngIf="formType === 'filterProducts'" placeholder="Nombre..." (keyup)='sendForm()'/>
         <input class="c-form__input c-form__input--little" formControlName='productName' type="text" *ngIf="formType === 'crudProduct'" placeholder="Nombre..."/>
+        <div *ngIf="formType === 'crudProduct'">
+            <label class="c-form__error-message" *ngIf="submitted && form.get('productName').errors?.required">Debes completar este campo</label>
+        </div>  
     </div>
     <div class="c-form__unity">
         <input class="c-form__input c-form__input--little" formControlName='productPriceFilter' type="text" *ngIf="formType === 'filterProducts'" placeholder="Precio 0.00" (keyup)='sendForm()'/>
         <input class="c-form__input c-form__input--little" formControlName='productPrice' type="text" *ngIf="formType === 'crudProduct'" placeholder="Precio 0.00"/>
+        <div *ngIf="formType === 'crudProduct'">
+            <label class="c-form__error-message" *ngIf="submitted && form.get('productPrice').errors?.required">Debes completar este campo</label>
+        </div> 
     </div>
     <div class="c-form__unity">
         <textarea class="c-form__input c-form__input--little" formControlName='productDescription' type="text" *ngIf="formType === 'crudProduct'" placeholder="Descripcion Producto"></textarea>
+        <div *ngIf="formType === 'crudProduct'">
+            <label class="c-form__error-message" *ngIf="submitted && form.get('productDescription').errors?.required">Debes completar este campo</label>
+        </div> 
     </div>
     <div class="c-form__unity">
         <select class="c-form__select" formControlName='productCategoryFilter' *ngIf="formType === 'filterProducts'" (change)='categorySelected($event)'>
@@ -34,6 +43,9 @@
             <option value="food">Comida</option>
             <option value="drink">Bebida</option>
         </select>
+        <div *ngIf="formType === 'crudProduct'">
+            <label class="c-form__error-message" *ngIf="submitted && form.get('productCategory').errors?.required">Debes completar este campo</label>
+        </div> 
     </div>
     <input type="file" accept='image/*' id="input-file" formControlName='file' *ngIf="formType === 'crudProduct'" (change)='onFileChange($event)'/>
     <label class="c-form__file" for="input-file" *ngIf="formType === 'crudProduct'">
@@ -44,7 +56,28 @@
         <option value="pending" value="0">Pendiente de pago</option>
         <option value="payed" value="1">Pagado</option>
     </select>
-    <div class="c-form__button" *ngIf="formType !== 'filterProducts' && formType !== 'filterOrder'">
+    <div class="c-form__unity">
+        <input class="c-form__input c-form__input--little" formControlName='restaurantNameFilter' type="text" *ngIf="formType === 'filterRestaurants'" placeholder="Nombre..." (keyup)='sendForm()'/>
+        <input class="c-form__input c-form__input--little" formControlName='restaurantName' type="text" *ngIf="formType === 'crudRestaurant'" placeholder="Nombre..."/>
+        <div *ngIf="formType === 'crudRestaurant'">
+            <label class="c-form__error-message" *ngIf="submitted && form.get('restaurantCif').errors?.required">Debes completar este campo</label>
+        </div>    
+    </div>
+    <div class="c-form__unity">
+        <input class="c-form__input c-form__input--little" formControlName='restaurantCifFilter' type="text" *ngIf="formType === 'filterRestaurants'" placeholder="CIF" (keyup)='sendForm()'/>
+        <input class="c-form__input c-form__input--little" formControlName='restaurantCif' type="text" *ngIf="formType === 'crudRestaurant'" placeholder="CIF"/>
+        <div *ngIf="formType === 'crudRestaurant'">
+            <label class="c-form__error-message" *ngIf="submitted && form.get('restaurantCif').errors?.required">Debes completar este campo</label>
+        </div>
+    </div>
+    <select class="c-form__select g--margin-bottom-m" formControlName='restaurantOwner' *ngIf="formType === 'crudRestaurant'">
+        <option value="" value="">Selecciona Propietario</option>
+        <option *ngFor='let user of users' [value]="user.id">{{user.username}}</option>
+    </select>
+    <div *ngIf="formType === 'crudRestaurant'">
+        <label class="c-form__error-message" *ngIf="submitted && form.get('restaurantCif').errors?.required">Debes completar este campo</label>
+    </div>    
+    <div class="c-form__button" *ngIf="formType !== 'filterProducts' && formType !== 'filterOrder' && formType !== 'filterRestaurants'">
         <button class="c-button" type="submit">{{buttonText}}</button>
     </div>
 </form>
