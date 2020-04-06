@@ -1,27 +1,27 @@
-# Wait4eatAdmin
+# Wait 4 Eat Admin Panel
+It's a part of the general project Wait 4 Eat. This project is destinated to make the CRUD options to the restaurant's owners, and to manage the whole application by the user administrator.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
+![GitHub Logo](/src/assets/img/logo/logo.png)
 
-## Development server
+## How to set up the project?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Make the project's clone
 
-## Code scaffolding
+```bash
+  git clone https://github.com/ngLuis/Wait4Eat__AdminPanel/
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install the npm packages
 
-## Build
+The npm version that we're using in this project is [npm v12.16.1](https://nodejs.org/en/blog/release/v12.16.1/).
+Once you've got installed that version write the next line:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+  npm install
+```
 
-## Running unit tests
+When everything is installed, execute the next npm script to start the project:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```bash
+  npm run start  
+```
