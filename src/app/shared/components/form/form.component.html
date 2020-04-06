@@ -60,7 +60,7 @@
         <input class="c-form__input c-form__input--little" formControlName='restaurantNameFilter' type="text" *ngIf="formType === 'filterRestaurants'" placeholder="Nombre..." (keyup)='sendForm()'/>
         <input class="c-form__input c-form__input--little" formControlName='restaurantName' type="text" *ngIf="formType === 'crudRestaurant'" placeholder="Nombre..."/>
         <div *ngIf="formType === 'crudRestaurant'">
-            <label class="c-form__error-message" *ngIf="submitted && form.get('restaurantCif').errors?.required">Debes completar este campo</label>
+            <label class="c-form__error-message" *ngIf="submitted && form.get('restaurantName').errors?.required">Debes completar este campo</label>
         </div>    
     </div>
     <div class="c-form__unity">
@@ -75,7 +75,7 @@
         <option *ngFor='let user of users' [value]="user.id">{{user.username}}</option>
     </select>
     <div *ngIf="formType === 'crudRestaurant'">
-        <label class="c-form__error-message" *ngIf="submitted && form.get('restaurantCif').errors?.required">Debes completar este campo</label>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('restaurantOwner').errors?.required">Debes completar este campo</label>
     </div>
     <div class="c-form__unity" *ngIf="formType === 'crudUsers'">
         <input class="c-form__input c-form__input--little" formControlName='userName' type="text" placeholder="Nombre..."/>
@@ -84,6 +84,7 @@
     <div class="c-form__unity" *ngIf="formType === 'crudUsers'">
         <input class="c-form__input c-form__input--little" formControlName='userPassword' type="password" placeholder="Contraseña..."/>
         <label class="c-form__error-message" *ngIf="submitted && form.get('userPassword').errors?.required">Debes completar este campo</label>  
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userPassword').errors?.minlength">La contraseña debe tener almenos 6 caracteres</label>
     </div>
     <div class="c-form__unity" *ngIf="formType === 'crudUsers'">
         <input class="c-form__input c-form__input--little" formControlName='userEmail' type="text" placeholder="Email..."/>
@@ -100,6 +101,9 @@
         <option value="" value="">Selecciona Tipo</option>
         <option *ngFor='let userType of userTypes' [value]="userType">{{userType | userType}}</option>
     </select>
+    <div *ngIf="formType === 'crudUsers'">
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userType').errors?.required">Debes completar este campo</label>
+    </div>
     <div class="c-form__button" *ngIf="formType !== 'filterProducts' && formType !== 'filterOrder' && formType !== 'filterRestaurants'">
         <button class="c-button" type="submit">{{buttonText}}</button>
     </div>

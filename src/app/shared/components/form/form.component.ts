@@ -122,7 +122,7 @@ export class FormComponent implements OnInit {
   createFormUsers() {
     return new FormGroup({
       userName: new FormControl('', [Validators.required]),
-      userPassword: new FormControl('', [Validators.required]),
+      userPassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
       userEmail: new FormControl('', [Validators.required, Validators.email]),
       userPhonenumber: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
       userType: new FormControl('', [Validators.required]),
