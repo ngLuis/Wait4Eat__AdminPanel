@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from 'src/app/shared/services/cookie.service';
 import { Restaurant } from 'src/app/shared/interfaces/Restaurant.interface';
 import { Router } from '@angular/router';
 
@@ -20,16 +20,16 @@ export class RestaurantPanelComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.restaurants = this.restaurantService.getRestaurantsByOwner(parseInt(this.cookieService.get('w4e-id')));
+    this.restaurants = this.restaurantService.getRestaurantsByOwner(parseInt(this.cookieService.getCookie('w4e-id')));
     if (this.restaurants.length === 1) {
       let id = this.restaurants[0].id;
+      this.cookieService.createCookie('w4e-restaurnt', id);
       this.router.navigate(['/restaurant-panel/' + id]);
-      this.cookieService.set('w4e-restaurant', id.toString());
     }
   }
 
   registerRestaurantManipulation(idRestaurant) {
-    this.cookieService.set('w4e-restaurant', idRestaurant.toString());
+    this.cookieService.createCookie('w4e-restaurant', idRestaurant);
     this.router.navigate(['/restaurant-panel/'+idRestaurant]);
   }
 

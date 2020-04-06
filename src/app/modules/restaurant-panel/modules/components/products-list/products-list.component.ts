@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { Product } from 'src/app/shared/interfaces/Product.interface';
-import { CookieService } from 'ngx-cookie-service';
 import { Form } from 'src/app/shared/enums/form.enum';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmation-dialog/confirmation-dialog.component';
 import { CrudDialogComponent } from 'src/app/shared/components/crud-dialog/crud-dialog.component';
 import { ToastService } from 'src/app/shared/services/toast.service';
+import { CookieService } from 'src/app/shared/services/cookie.service';
 
 @Component({
   selector: 'app-products-list',
@@ -50,7 +50,7 @@ export class ProductsListComponent implements OnInit {
           description: response.productDescription,
           price: response.productPrice, 
           category: response.productCategory, 
-          idRestaurant: parseInt(this.cookieService.get('w4e-restaurant'))
+          idRestaurant: parseInt(this.cookieService.getCookie('w4e-restaurant'))
         };
         this.productService.update(product.id, productToUpdate);
         this.refreshProductsList();
@@ -62,7 +62,7 @@ export class ProductsListComponent implements OnInit {
   }
 
   refreshProductsList() {
-    this.products = this.productService.getProductsByIdRestaurant(parseInt(this.cookieService.get('w4e-restaurant')));
+    this.products = this.productService.getProductsByIdRestaurant(parseInt(this.cookieService.getCookie('w4e-restaurant')));
   }
 
   openModalConfirmation() {
@@ -86,7 +86,7 @@ export class ProductsListComponent implements OnInit {
           description: response.productDescription,
           price: response.productPrice, 
           category: response.productCategory, 
-          idRestaurant: parseInt(this.cookieService.get('w4e-restaurant'))
+          idRestaurant: parseInt(this.cookieService.getCookie('w4e-restaurant'))
         };
         this.productService.insert(product);
         this.refreshProductsList();

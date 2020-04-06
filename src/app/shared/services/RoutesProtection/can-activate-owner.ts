@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from '../cookie.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class CanActivateOwner implements CanActivate{
 
   canActivate() {
     let canActivate = false;
-    if (parseInt(this.cookieService.get('w4e-type')) === 1) {
+    if (parseInt(this.cookieService.getCookie('w4e-type')) === 1) {
         canActivate = true;
     } else {
       this.router.navigate(['/']);

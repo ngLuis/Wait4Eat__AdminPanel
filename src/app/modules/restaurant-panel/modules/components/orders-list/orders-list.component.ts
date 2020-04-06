@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/shared/services/orders.service';
 import { Order } from 'src/app/shared/interfaces/Order.interface';
-import { CookieService } from 'ngx-cookie-service';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faQrcode } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,6 +8,7 @@ import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmat
 import { ScannerModalComponent } from 'src/app/shared/components/scanner-modal/scanner-modal.component';
 import { ToastService } from 'src/app/shared/services/toast.service';
 import { Form } from 'src/app/shared/enums/form.enum';
+import { CookieService } from 'src/app/shared/services/cookie.service';
 
 @Component({
   selector: 'app-orders-list',
@@ -30,7 +30,7 @@ export class OrdersListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.orders = this.orderService.getAllOrders(this.coockieService.get('w4e-restaurant'));
+    this.orders = this.orderService.getAllOrders(this.coockieService.getCookie('w4e-restaurant'));
   }
 
   payOrder(id) {
@@ -92,12 +92,12 @@ export class OrdersListComponent implements OnInit {
     if ( ortherState === '' ) {
       this.refreshList();
     } else {
-      this.orders = this.orderService.getOrdersByState(this.coockieService.get('w4e-restaurant'), parseInt(ortherState));
+      this.orders = this.orderService.getOrdersByState(this.coockieService.getCookie('w4e-restaurant'), parseInt(ortherState));
     }
   }
 
   refreshList() {
-    this.orders = this.orderService.getAllOrders(this.coockieService.get('w4e-restaurant'));
+    this.orders = this.orderService.getAllOrders(this.coockieService.getCookie('w4e-restaurant'));
   }
 
 }

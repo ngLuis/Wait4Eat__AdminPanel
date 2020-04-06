@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CookieService } from 'ngx-cookie-service'; 
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,7 +36,6 @@ import { FormModule } from './shared/components/form/form.module';
   providers: [
     ImagesService,
     AuthService,
-    CookieService,
     ToastService
   ],
   bootstrap: [AppComponent]

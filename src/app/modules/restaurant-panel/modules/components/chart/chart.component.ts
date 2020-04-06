@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Label, MultiDataSet, Color } from 'ng2-charts';
 import { ProductsService } from 'src/app/shared/services/products.service';
-import { CookieService } from 'ngx-cookie-service';
+
 import { ChartType, ChartDataSets, ChartOptions } from 'chart.js';
 import { OrdersService } from 'src/app/shared/services/orders.service';
+import { CookieService } from 'src/app/shared/services/cookie.service';
 
 
 @Component({
@@ -13,14 +14,14 @@ import { OrdersService } from 'src/app/shared/services/orders.service';
 })
 export class ChartComponent implements OnInit {
 
-  private idRestaurant = this.cookiService.get('w4e-restaurant');
+  private idRestaurant = parseInt(this.cookiService.getCookie('w4e-restaurant'));
   private months: Array<string> = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
 
   doughnutChartLabels: Label[] = ['Comida','Bebida'];
   doughnutChartData: MultiDataSet = [
     [
-      this.productService.getNumberOfFood(parseInt(this.idRestaurant)).length,
-      this.productService.getNumberOfDrink(parseInt(this.idRestaurant)).length
+      this.productService.getNumberOfFood(this.idRestaurant).length,
+      this.productService.getNumberOfDrink(this.idRestaurant).length
     ]
   ]
   doughnutChartType: ChartType = 'doughnut';
