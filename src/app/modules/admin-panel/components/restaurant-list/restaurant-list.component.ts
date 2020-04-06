@@ -34,7 +34,7 @@ export class RestaurantListComponent implements OnInit {
           id: 1050,
           name: response.restaurantName,
           cif: response.restaurantCif,
-          idOwner: response.restaurantOwner
+          idOwner: parseInt(response.restaurantOwner)
         }
         this.restaurantService.createRestaurant(restaurant);
         this.refreshData();
@@ -49,9 +49,10 @@ export class RestaurantListComponent implements OnInit {
     this.openCrudDialog('update', restaurant).afterClosed().subscribe( response => {
       if ( response !== undefined ) {
         let restaurantNew = {
+          id: restaurant.id,
           name: response.restaurantName,
           cif: response.restaurantCif,
-          idOwner: response.restaurantOwner
+          idOwner: parseInt(response.restaurantOwner)
         }
         this.restaurantService.updateRestaurant(restaurant.id, restaurantNew);
         this.refreshData();

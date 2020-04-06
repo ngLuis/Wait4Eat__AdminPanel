@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FilterBarModule } from 'src/app/shared/components/filter-bar/filter-bar.module';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { UserTypeModule } from 'src/app/shared/pipes/user-type.module';
 
 
 
@@ -15,7 +17,8 @@ import { FilterBarModule } from 'src/app/shared/components/filter-bar/filter-bar
   declarations: [
     AdminPanelComponent,
     HomeComponent,
-    RestaurantListComponent
+    RestaurantListComponent,
+    UsersListComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +26,8 @@ import { FilterBarModule } from 'src/app/shared/components/filter-bar/filter-bar
     MenuModule,
     FontAwesomeModule,
     MatDialogModule,
-    FilterBarModule
+    FilterBarModule,
+    UserTypeModule,
   ]
 })
 export class AdminPanelModule { }

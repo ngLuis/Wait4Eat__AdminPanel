@@ -15,6 +15,8 @@ export class FormComponent implements OnInit {
   submitted: boolean;
   users: Array<User> = [];
 
+  userTypes: Array<Number> = [0,1,2]
+
   @Input() formType: Form;
   @Input() buttonText: string;
   @Input() formTitle: string;
@@ -55,6 +57,17 @@ export class FormComponent implements OnInit {
           restaurantName: this.itemData.name,
           restaurantCif: this.itemData.cif,
           restaurantOwner: this.itemData.idOwner,
+        })
+      }
+    } else if (this.formType === Form.crudUsers) {
+      this.form = this.createFormUsers();
+      if ( this.itemData !== undefined ) {
+        this.form.patchValue({
+          userName: this.itemData.username,
+          userPassword: this.itemData.password,
+          userEmail: this.itemData.email,
+          userPhonenumber: this.itemData.phoneNumber,
+          userType: this.itemData.type
         })
       }
     }
@@ -103,6 +116,16 @@ export class FormComponent implements OnInit {
       restaurantName: new FormControl('', [Validators.required]),
       restaurantCif: new FormControl('', [Validators.required]),
       restaurantOwner: new FormControl('', [Validators.required, Validators.required])
+    })
+  }
+
+  createFormUsers() {
+    return new FormGroup({
+      userName: new FormControl('', [Validators.required]),
+      userPassword: new FormControl('', [Validators.required]),
+      userEmail: new FormControl('', [Validators.required, Validators.email]),
+      userPhonenumber: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
+      userType: new FormControl('', [Validators.required]),
     })
   }
 

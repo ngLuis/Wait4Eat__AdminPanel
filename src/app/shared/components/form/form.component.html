@@ -76,7 +76,30 @@
     </select>
     <div *ngIf="formType === 'crudRestaurant'">
         <label class="c-form__error-message" *ngIf="submitted && form.get('restaurantCif').errors?.required">Debes completar este campo</label>
-    </div>    
+    </div>
+    <div class="c-form__unity" *ngIf="formType === 'crudUsers'">
+        <input class="c-form__input c-form__input--little" formControlName='userName' type="text" placeholder="Nombre..."/>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userName').errors?.required">Debes completar este campo</label>
+    </div>
+    <div class="c-form__unity" *ngIf="formType === 'crudUsers'">
+        <input class="c-form__input c-form__input--little" formControlName='userPassword' type="password" placeholder="Contraseña..."/>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userPassword').errors?.required">Debes completar este campo</label>  
+    </div>
+    <div class="c-form__unity" *ngIf="formType === 'crudUsers'">
+        <input class="c-form__input c-form__input--little" formControlName='userEmail' type="text" placeholder="Email..."/>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userEmail').errors?.required">Debes completar este campo</label>  
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userEmail').errors?.email">El formato de email debe ser correcto</label>    
+    </div>
+    <div class="c-form__unity" *ngIf="formType === 'crudUsers'">
+        <input class="c-form__input c-form__input--little" formControlName='userPhonenumber' type="text" placeholder="Teléfono..."/>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userPhonenumber').errors?.required">Debes completar este campo</label> 
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userPhonenumber').errors?.minlength">El número debe tener 9 dígitos</label>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userPhonenumber').errors?.maxlength">El número debe tener 9 dígitos</label>  
+    </div>
+    <select class="c-form__select g--margin-bottom-m" formControlName='userType' *ngIf="formType === 'crudUsers'">
+        <option value="" value="">Selecciona Tipo</option>
+        <option *ngFor='let userType of userTypes' [value]="userType">{{userType | userType}}</option>
+    </select>
     <div class="c-form__button" *ngIf="formType !== 'filterProducts' && formType !== 'filterOrder' && formType !== 'filterRestaurants'">
         <button class="c-button" type="submit">{{buttonText}}</button>
     </div>

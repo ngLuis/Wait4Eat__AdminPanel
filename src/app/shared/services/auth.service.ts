@@ -32,6 +32,20 @@ export class AuthService {
     return this.usersArray[userIndex];
   }
 
+  createUser(user) {
+    this.usersArray.push(user);
+  }
+
+  updateUser(userId, user) {
+    let userIndex = this.usersArray.findIndex( (user) => user.id === userId);
+    this.usersArray.splice(userIndex, 1, user);
+  }
+
+  removeUser(userId) {
+    let userIndex = this.usersArray.findIndex( (user) => user.id === userId);
+    this.usersArray.splice(userIndex, 1);
+  }
+
   getAllUsers() {
     return this.usersArray;
   }

@@ -2,14 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from './form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserTypeModule } from '../../pipes/user-type.module';
 
 
 
 @NgModule({
-  declarations: [FormComponent],
+  declarations: [
+    FormComponent
+  ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UserTypeModule
   ],
   exports: [
     FormComponent

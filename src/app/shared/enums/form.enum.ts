@@ -4,5 +4,6 @@ export enum Form {
     crudProduct = 'crudProduct',
     filterOrder = 'filterOrder',
     filterRestaurants = 'filterRestaurants',
-    crudRestaurant = 'crudRestaurant'
+    crudRestaurant = 'crudRestaurant',
+    crudUsers = 'crudUsers'
 }

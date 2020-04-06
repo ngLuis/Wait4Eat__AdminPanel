@@ -4,12 +4,14 @@ import { ErrorPage404Component } from 'src/app/shared/components/error-page404/e
 import { AdminPanelComponent } from './admin-panel.component';
 import { HomeComponent } from './components/home/home.component';
 import { RestaurantListComponent } from './components/restaurant-list/restaurant-list.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 
 const routes: Routes = [
   { path: '', component: AdminPanelComponent, children: [
     {path: 'home', component: HomeComponent},
     {path: 'restaurant-list', component: RestaurantListComponent},
+    {path: 'users-list', component: UsersListComponent},
     {path: '', redirectTo: 'home', pathMatch: 'full'}
   ]},
   { path: '**', component: ErrorPage404Component}
