@@ -1,0 +1,14 @@
+{
+    "normal": {
+        "email":"luis@gmail.com",
+        "password":"adminadmin"
+    },
+    "owner": {
+        "email":"toni@gmail.com",
+        "password":"adminadmin"
+    },
+    "admin": {
+        "email":"josemi@gmail.com",
+        "password":"adminadmin"
+    }
+}

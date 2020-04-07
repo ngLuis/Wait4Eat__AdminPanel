@@ -28,7 +28,7 @@ export class RestaurantListComponent implements OnInit {
   }
 
   createNewRestaurant() {
-    this.openCrudDialog().afterClosed().subscribe(response => {
+    this.openCrudDialog(null, null, 'Crear Restaurante').afterClosed().subscribe(response => {
       if ( response !== undefined ) {
         let restaurant = {
           id: 1050,
@@ -46,7 +46,7 @@ export class RestaurantListComponent implements OnInit {
   }
 
   updateRestaurant(restaurant) {
-    this.openCrudDialog('update', restaurant).afterClosed().subscribe( response => {
+    this.openCrudDialog('update', restaurant, 'Actualizar Restaurante').afterClosed().subscribe( response => {
       if ( response !== undefined ) {
         let restaurantNew = {
           id: restaurant.id,
@@ -86,10 +86,10 @@ export class RestaurantListComponent implements OnInit {
     });
   }
 
-  openCrudDialog(type = null, product = null) {
+  openCrudDialog(type = null, product = null, title) {
     return this.matDialog.open(CrudDialogComponent, {
       data: {
-        'title':'Crear restaurante',
+        'title': title,
         'buttonText':'Crear',
         'formType': Form.crudRestaurant,
         'type': type,

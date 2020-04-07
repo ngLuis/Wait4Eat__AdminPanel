@@ -5,7 +5,7 @@
     <div class="c-section__content">
         <div class="l-columns l-columns--3-columns l-columns--2-columns@tablet l-columns--1-columns@phone">
             <div class="l-columns__area g--margin-xs g--margin-left-m" *ngFor='let restaurant of restaurants'>
-                <div class="c-card">
+                <div class="c-card" data-cy='restaurant-card'>
                     <img class="c-card__img" src="../../../assets/img/carousel/2.jpg"/>
                     <h1 class="c-card__title">{{restaurant.name}}</h1>
                     <div class="c-card__content">

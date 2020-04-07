@@ -1,10 +1,10 @@
-<ul class="c-menu">
+<ul class="c-menu" data-cy="menu-bar">
     <li class="c-menu__option" *ngFor='let option of options' routerLink="{{option.routeLink}}">
         <fa-icon class="c-menu__icon" [icon]="option.icon"></fa-icon>
         {{option.name}}
         <div class="c-menu__bottom-bar"></div>
     </li>
-    <li class="c-menu__option c-menu__option--right" (click)='logOut()'>
+    <li class="c-menu__option c-menu__option--right" (click)='logOut()' data-cy='logout-button'>
         <fa-icon class="c-menu__icon" [icon]="faSignOutAlt"></fa-icon>
         Cerrar Sesión
         <div class="c-menu__bottom-bar"></div>

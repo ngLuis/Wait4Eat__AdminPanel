@@ -3,7 +3,7 @@
         <h1 class="c-section__title">Usuarios</h1>
     </div>
     <div class="c-section__menu g--padding-m g--margin-right-l">
-        <a class="c-button c-button--new" (click)='createUser()'>Crear Nuevo</a>
+        <a class="c-button c-button--new" (click)='createUser()' data-cy="create-new-button">Crear Nuevo</a>
     </div>
     <div class="c-section__content g--padding-m g--margin-top-xs">
         <div class="c-table g--margin-left-xl g--margin-right-xl">
@@ -16,17 +16,17 @@
                     <th class="c-table__header-item">Tipo</th>
                     <th class="c-table__header-item"></th>
                 </tr>
-                <tr *ngFor='let user of users'>
+                <tr *ngFor='let user of users' data-cy="usercrud-list-row">
                     <td class="c-table__body-item">{{user.id}}</td>
                     <td class="c-table__body-item">{{user.username}}</td>
                     <td class="c-table__body-item">{{user.email}}</td>
                     <td class="c-table__body-item">{{user.phoneNumber}}</td>
                     <td class="c-table__body-item">{{user.type | userType}}</td>
                     <td class="c-table__body-item c-table--center-content">
-                        <a class="c-button c-button--little c-button--update" (click)='updateUser(user)'>
+                        <a class="c-button c-button--little c-button--update" (click)='updateUser(user)' data-cy="usercrud-list-row-update">
                             <fa-icon class="c-menu__icon" [icon]="faEdit"></fa-icon>
                         </a>
-                        <a class="c-button c-button--little c-button--warning g--margin-left-xs" (click)='deleteUser(user.id)'>
+                        <a class="c-button c-button--little c-button--warning g--margin-left-xs" (click)='deleteUser(user.id)' data-cy="usercrud-list-row-delete">
                             <fa-icon class="c-menu__icon" [icon]="faTrashAlt"></fa-icon>
                         </a>
                     </td>

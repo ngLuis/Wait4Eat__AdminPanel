@@ -33,9 +33,9 @@ export class UsersListComponent implements OnInit {
     this.openModalConfirmation().afterClosed().subscribe( action => {
       if (action) {
         this.authService.removeUser(userId);
-        this.toastServie.showSuccess('Opcion realizada con éxtio', 'El usuario ha sido eliminado');
+        this.toastServie.showSuccess('Operación realizada con éxito', 'El usuario ha sido eliminado');
       } else {
-        this.toastServie.showError('Opcion fallida', 'No hemos podido eliminar al usuario');
+        this.toastServie.showError('Operación fallida', 'No hemos podido eliminar al usuario');
       }
     })
   }
