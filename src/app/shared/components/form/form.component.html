@@ -14,20 +14,20 @@
     </div>
     <div class="c-form__unity">
         <input class="c-form__input c-form__input--little" formControlName='productNameFilter' type="text" *ngIf="formType === 'filterProducts'" placeholder="Nombre..." (keyup)='sendForm()'/>
-        <input class="c-form__input c-form__input--little" formControlName='productName' type="text" *ngIf="formType === 'crudProduct'" placeholder="Nombre..."/>
+        <input class="c-form__input c-form__input--little" formControlName='productName' type="text" *ngIf="formType === 'crudProduct'" placeholder="Nombre..." data-cy="productcrud-name"/>
         <div *ngIf="formType === 'crudProduct'">
             <label class="c-form__error-message" *ngIf="submitted && form.get('productName').errors?.required">Debes completar este campo</label>
         </div>  
     </div>
     <div class="c-form__unity">
         <input class="c-form__input c-form__input--little" formControlName='productPriceFilter' type="text" *ngIf="formType === 'filterProducts'" placeholder="Precio 0.00" (keyup)='sendForm()'/>
-        <input class="c-form__input c-form__input--little" formControlName='productPrice' type="text" *ngIf="formType === 'crudProduct'" placeholder="Precio 0.00"/>
+        <input class="c-form__input c-form__input--little" formControlName='productPrice' type="text" *ngIf="formType === 'crudProduct'" placeholder="Precio 0.00" data-cy="productcrud-price"/>
         <div *ngIf="formType === 'crudProduct'">
             <label class="c-form__error-message" *ngIf="submitted && form.get('productPrice').errors?.required">Debes completar este campo</label>
         </div> 
     </div>
     <div class="c-form__unity">
-        <textarea class="c-form__input c-form__input--little" formControlName='productDescription' type="text" *ngIf="formType === 'crudProduct'" placeholder="Descripcion Producto"></textarea>
+        <textarea class="c-form__input c-form__input--little" formControlName='productDescription' type="text" *ngIf="formType === 'crudProduct'" placeholder="Descripcion Producto" data-cy="productcrud-description"></textarea>
         <div *ngIf="formType === 'crudProduct'">
             <label class="c-form__error-message" *ngIf="submitted && form.get('productDescription').errors?.required">Debes completar este campo</label>
         </div> 
@@ -38,7 +38,7 @@
             <option value="food">Comida</option>
             <option value="drink">Bebida</option>
         </select>
-        <select class="c-form__select" formControlName='productCategory' *ngIf="formType === 'crudProduct'">
+        <select class="c-form__select" formControlName='productCategory' *ngIf="formType === 'crudProduct'" data-cy="productcrud-category">
             <option value="">Selecciona Categoria</option>
             <option value="food">Comida</option>
             <option value="drink">Bebida</option>

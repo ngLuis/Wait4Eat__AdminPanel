@@ -18,12 +18,13 @@ Cypress.Commands.add('logout', () => {
 
 Cypress.Commands.add('fillForm', (formFields) => {
     formFields.map((field) => {
-        if (field.type.toLowerCase() === 'text') {
+        let type = field.type.toLowerCase();
+        if (type === 'text' || type === 'textarea') {
             let dataCy = field.dataCy.split('@');
             toDataCy(dataCy[0], dataCy[1]).clear().type(field.value);
         }
 
-        if (field.type.toLowerCase() === 'select') {
+        if (type === 'select') {
             let dataCy = field.dataCy.split('@');
             toDataCy(dataCy[0], dataCy[1]).select(field.value);
         } 

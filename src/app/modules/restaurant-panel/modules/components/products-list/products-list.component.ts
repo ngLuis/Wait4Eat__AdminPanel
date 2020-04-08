@@ -42,7 +42,7 @@ export class ProductsListComponent implements OnInit {
   }
 
   updateProduct(product) {
-    this.openCrudDialog('update', product).afterClosed().subscribe(response => {
+    this.openCrudDialog('update', product, 'Actualizar producto').afterClosed().subscribe(response => {
       if ( response !== undefined ) {
         let productToUpdate: Product = {
           id: product.id, 
@@ -63,6 +63,7 @@ export class ProductsListComponent implements OnInit {
 
   refreshProductsList() {
     this.products = this.productService.getProductsByIdRestaurant(parseInt(this.cookieService.getCookie('w4e-restaurant')));
+    console.log(this.products);
   }
 
   openModalConfirmation() {
@@ -97,10 +98,10 @@ export class ProductsListComponent implements OnInit {
     });
   }
 
-  openCrudDialog(type = null, product = null) {
+  openCrudDialog(type = null, product = null, title = 'Crear producto') {
     return this.matDialog.open(CrudDialogComponent, {
       data: {
-        'title':'Crear producto',
+        'title':title,
         'buttonText':'Crear',
         'formType': Form.crudProduct,
         'type': type,
