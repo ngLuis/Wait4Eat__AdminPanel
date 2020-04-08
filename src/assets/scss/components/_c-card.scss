@@ -15,11 +15,21 @@
     &--big {
         width: 750px;
         height: 650px;
+
+        @media ( max-width: 1536px ) {
+            width: 640px;
+            height: 540px;  
+        }
     }
 
     &--horizontal {
         width: 700px;
         height: 300px;
+
+        @media ( max-width: 1536px ) {
+            width: 640px;
+            height: 250px;  
+        }
     }
 
     &__header {
@@ -34,6 +44,11 @@
 
         &--little {
             width: 50%;
+
+            @media ( max-width: 1536px ) {
+                margin-top: 50px;
+                width: 40%;  
+            }
         }
     }
 
@@ -44,6 +59,11 @@
 
         &--big {
             font-size: 50px;
+
+            @media ( max-width: 1536px ) {
+                font-size: 35px;
+                margin-bottom: 20px;
+            }
         }
     }
 
@@ -59,6 +79,10 @@
         &--big {
             font-size: 20px;
             margin-bottom: 160px;
+
+            @media ( max-width: 1536px ) {
+                font-size: 18px;
+            }
         }
 
         &--justify {

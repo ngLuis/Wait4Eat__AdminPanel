@@ -17,22 +17,26 @@
         grid-area: bottom;
     }
 
-    // @media ( max-width: 1536px ) {
-    //     grid-template-areas: "right"
-    //                          "top"
-    //                          "bottom";
-    // }
+    @media ( max-width: 1293px ) {
+        grid-template-areas: "right"
+        "top"
+        "bottom";
 
-    // @media ( max-width: 1293px ) {
-    //     grid-template-areas: "right"
-    //     "top"
-    //     "bottom";
-    // }
+        &--no-action {
+            grid-template-areas: "right top"
+            "right bottom";
+        }
+    }
 
-    // @media ( max-width: 900px ) {
-    //     grid-template-areas: "right"
-    //     "top"
-    //     "bottom";
-    // }
+    @media ( max-width: 900px ) {
+        grid-template-areas: "right"
+        "top"
+        "bottom";
+
+        &--no-action {
+            grid-template-areas: "right top"
+            "right bottom";
+        }
+    }
 
 }

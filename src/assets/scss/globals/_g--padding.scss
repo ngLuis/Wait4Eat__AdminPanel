@@ -33,7 +33,75 @@ $sizes: ('xs':10px, 's':20px, 'm':40px, 'l':80px, 'xl':160px);
         }
     }
 
-    @media (max-width: 512px) {
+    @media ( max-width: 1536px ) {
+        @each $size, $value in $sizes {
+            &-#{$size}\@small-desktop {
+                padding: $value;
+            }
+    
+            &-vertical-#{$size}\@small-desktop {
+                padding-top: $value;
+                padding-bottom: $value;
+            }
+    
+            &-horizontal-#{$size}\@small-desktop {
+                padding-left: $value;
+                padding-right: $value;
+            }
+    
+            &-top-#{$size}\@small-desktop {
+                padding-top: $value;
+            }
+    
+            &-bottom-#{$size}\@small-desktop {
+                padding-bottom: $value;
+            }
+    
+            &-right-#{$size}\@small-desktop {
+                padding-right: $value;
+            }
+    
+            &-left-#{$size}\@small-desktop {
+                padding-left: $value;
+            }
+        }
+    }
+
+    @media ( max-width: 1293px ) {
+        @each $size, $value in $sizes {
+            &-#{$size}\@tablet {
+                padding: $value;
+            }
+    
+            &-vertical-#{$size}\@tablet {
+                padding-top: $value;
+                padding-bottom: $value;
+            }
+    
+            &-horizontal-#{$size}\@tablet {
+                padding-left: $value;
+                padding-right: $value;
+            }
+    
+            &-top-#{$size}\@tablet {
+                padding-top: $value;
+            }
+    
+            &-bottom-#{$size}\@tablet {
+                padding-bottom: $value;
+            }
+    
+            &-right-#{$size}\@tablet {
+                padding-right: $value;
+            }
+    
+            &-left-#{$size}\@tablet {
+                padding-left: $value;
+            }
+        }
+    }
+
+    @media ( max-width: 900px ) {
         @each $size, $value in $sizes {
             &-#{$size}\@phone {
                 padding: $value;

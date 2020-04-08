@@ -34,7 +34,75 @@ $sizes: ('xs':10px, 's':20px, 'm':40px, 'l':80px, 'xl':160px);
         }
     }
 
-    @media (max-width: 512px) {
+    @media ( max-width: 1536px ) {
+        @each $size, $value in $sizes {
+            &-#{$size}\@small-desktop {
+                margin: $value;
+            }
+    
+            &-vertical-#{$size}\@small-desktop {
+                margin-top: $value;
+                margin-bottom: $value;
+            }
+    
+            &-horizontal-#{$size}\@small-desktop {
+                margin-left: $value;
+                margin-right: $value;
+            }
+    
+            &-top-#{$size}\@small-desktop {
+                margin-top: $value;
+            }
+    
+            &-bottom-#{$size}\@small-desktop {
+                margin-bottom: $value;
+            }
+    
+            &-right-#{$size}\@small-desktop {
+                margin-right: $value;
+            }
+    
+            &-left-#{$size}\@small-desktop {
+                margin-left: $value;
+            }
+        }
+    }
+
+    @media ( max-width: 1293px ) {
+        @each $size, $value in $sizes {
+            &-#{$size}\@tablet {
+                margin: $value;
+            }
+    
+            &-vertical-#{$size}\@tablet {
+                margin-top: $value;
+                margin-bottom: $value;
+            }
+    
+            &-horizontal-#{$size}\@tablet {
+                margin-left: $value;
+                margin-right: $value;
+            }
+    
+            &-top-#{$size}\@tablet {
+                margin-top: $value;
+            }
+    
+            &-bottom-#{$size}\@tablet {
+                margin-bottom: $value;
+            }
+    
+            &-right-#{$size}\@tablet {
+                margin-right: $value;
+            }
+    
+            &-left-#{$size}\@tablet {
+                margin-left: $value;
+            }
+        }
+    }
+
+    @media ( max-width: 900px ) {
         @each $size, $value in $sizes {
             &-#{$size}\@phone {
                 margin: $value;
@@ -67,5 +135,4 @@ $sizes: ('xs':10px, 's':20px, 'm':40px, 'l':80px, 'xl':160px);
             }
         }
     }
-
 }
