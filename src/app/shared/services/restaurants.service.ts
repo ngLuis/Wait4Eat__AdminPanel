@@ -33,7 +33,6 @@ export class RestaurantsService {
   }
 
   updateRestaurant(idRestaurant, newRestaurant) {
-    console.log(idRestaurant, newRestaurant)
     let index = this.restaurants.findIndex( restaurant => restaurant.id === idRestaurant);
     this.restaurants.splice(index, 1, newRestaurant);
   }

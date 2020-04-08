@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
   form: FormGroup;
   submitted: boolean;
   users: Array<User> = [];
+  file: File = null;
 
   userTypes: Array<Number> = [0,1,2]
 
@@ -22,6 +23,7 @@ export class FormComponent implements OnInit {
   @Input() formTitle: string;
   @Input() itemData: any = undefined;
   @Output() formData: EventEmitter<any> = new EventEmitter<any>();
+  @Output() fileUploaded: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private authService: AuthService,
@@ -115,7 +117,8 @@ export class FormComponent implements OnInit {
     return new FormGroup({
       restaurantName: new FormControl('', [Validators.required]),
       restaurantCif: new FormControl('', [Validators.required]),
-      restaurantOwner: new FormControl('', [Validators.required, Validators.required])
+      restaurantOwner: new FormControl('', [Validators.required, Validators.required]),
+      file: new FormControl('')
     })
   }
 
@@ -134,12 +137,10 @@ export class FormComponent implements OnInit {
   }
 
   onFileChange(event) {
-    this.form.controls['file'].setValue('Hello');
-    // if ( event.target.files.length > 0 ) {
-    //   this.form.patchValue({
-    //     file: event.target.files[0]
-    //   })
-    // }
+    if ( event.target.files.length > 0 ) {
+      this.file = event.target.files[0];
+      this.fileUploaded.emit(this.file);
+    }
   }
 
   categorySelected(category) {

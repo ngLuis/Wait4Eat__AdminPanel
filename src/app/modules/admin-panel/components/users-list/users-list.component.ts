@@ -43,7 +43,6 @@ export class UsersListComponent implements OnInit {
   createUser() {
     this.openCrudDialog().afterClosed().subscribe( response => {
       if ( response !== undefined ) {
-        console.log(response)
         let user = {
           id: 1050,
           username: response.userName,
@@ -64,7 +63,6 @@ export class UsersListComponent implements OnInit {
   updateUser(user){
     this.openCrudDialog('update', user).afterClosed().subscribe(response => {
       if ( response !== undefined ) {
-        console.log(response)
         let userUpdated = {
           id: user.id,
           username: response.userName,

@@ -2,4 +2,4 @@
     <h1 class="c-dialog__title">{{title}}</h1>
 </div>
 
-<app-form [formType]='formType' [buttonText]='buttonText' [itemData]='itemData' (formData)='sendToParent($event)'></app-form>
+<app-form [formType]='formType' [buttonText]='buttonText' [itemData]='itemData' (formData)='sendToParent($event)' (fileUploaded)='sendImage($event)'></app-form>

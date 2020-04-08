@@ -63,7 +63,6 @@ export class ProductsListComponent implements OnInit {
 
   refreshProductsList() {
     this.products = this.productService.getProductsByIdRestaurant(parseInt(this.cookieService.getCookie('w4e-restaurant')));
-    console.log(this.products);
   }
 
   openModalConfirmation() {
@@ -81,13 +80,15 @@ export class ProductsListComponent implements OnInit {
   createNewProduct() {
     this.openCrudDialog().afterClosed().subscribe(response => {
       if (response !== undefined ) {
+        console.log(response);
         let product: Product = {
           id: 60, 
           name: response.productName, 
           description: response.productDescription,
           price: response.productPrice, 
           category: response.productCategory, 
-          idRestaurant: parseInt(this.cookieService.getCookie('w4e-restaurant'))
+          idRestaurant: parseInt(this.cookieService.getCookie('w4e-restaurant')),
+          
         };
         this.productService.insert(product);
         this.refreshProductsList();

@@ -30,6 +30,7 @@ export class RestaurantListComponent implements OnInit {
   createNewRestaurant() {
     this.openCrudDialog(null, null, 'Crear Restaurante').afterClosed().subscribe(response => {
       if ( response !== undefined ) {
+        console.log(response)
         let restaurant = {
           id: 1050,
           name: response.restaurantName,
@@ -48,6 +49,7 @@ export class RestaurantListComponent implements OnInit {
   updateRestaurant(restaurant) {
     this.openCrudDialog('update', restaurant, 'Actualizar Restaurante').afterClosed().subscribe( response => {
       if ( response !== undefined ) {
+        console.log(response)
         let restaurantNew = {
           id: restaurant.id,
           name: response.restaurantName,
@@ -118,8 +120,6 @@ export class RestaurantListComponent implements OnInit {
 
     let queryCif = cif.toLowerCase();
     arrayCif = this.filterOneArray('cif', queryCif);
-
-    console.log(arrayCif);
 
     restaurantsFiltered = this.intersect(arrayName, arrayCif);
 

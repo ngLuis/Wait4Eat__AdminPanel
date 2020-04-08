@@ -47,10 +47,6 @@
             <label class="c-form__error-message" *ngIf="submitted && form.get('productCategory').errors?.required">Debes completar este campo</label>
         </div> 
     </div>
-    <input type="file" accept='image/*' id="input-file" formControlName='file' *ngIf="formType === 'crudProduct'" (change)='onFileChange($event)'/>
-    <label class="c-form__file" for="input-file" *ngIf="formType === 'crudProduct'">
-        Selecciona Fichero...
-    </label>
     <select class="c-form__select" formControlName='orderState' *ngIf="formType === 'filterOrder'" (change)='sendForm()'>
         <option value="" value="">Selecciona Estado</option>
         <option value="pending" value="0">Pendiente de pago</option>
@@ -104,6 +100,10 @@
     <div *ngIf="formType === 'crudUsers'">
         <label class="c-form__error-message" *ngIf="submitted && form.get('userType').errors?.required">Debes completar este campo</label>
     </div>
+    <label class="c-form__file" for="input-file" *ngIf="formType === 'crudProduct' || formType === 'crudRestaurant'">
+        Selecciona Fichero...
+    </label>
+    <input type="file" accept='image/*' id="input-file" formControlName='file' *ngIf="formType === 'crudProduct' || formType === 'crudRestaurant'" (change)='onFileChange($event)'/>
     <div class="c-form__button" *ngIf="formType !== 'filterProducts' && formType !== 'filterOrder' && formType !== 'filterRestaurants'">
         <button class="c-button" type="submit" data-cy='send-form'>{{buttonText}}</button>
     </div>

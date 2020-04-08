@@ -13,6 +13,7 @@ export class CrudDialogComponent implements OnInit {
   title: string;
   buttonText: string;
   itemData: any;
+  file: File;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -31,6 +32,10 @@ export class CrudDialogComponent implements OnInit {
 
   sendToParent($event) {
     this.matDialogRed.close($event);
+  }
+
+  sendImage($event) {
+    this.file = $event;
   }
 
 }
