@@ -1,0 +1,22 @@
+.g--hide {
+
+    display: none;
+
+    @media ( max-width: 1536px ) {
+        &\@small-desktop {
+            display: none;
+        }
+    }
+
+    @media ( max-width: 1293px ) {
+        &\@tablet {
+            display: none;
+        }
+    }
+
+    @media ( max-width: 900px ) {
+        &\@phone {
+            display: none;
+        }
+    }
+}
