@@ -6,7 +6,9 @@ export async function login(userPermissions) {
             user = usersData.normal;
         } else if (userPermissions.toLowerCase() === 'owner') {
             user = usersData.owner;
-        } else if (userPermissions.toLowerCase() === 'admin') {
+        } else if (userPermissions.toLowerCase() === 'ownertest') {
+            user = usersData.ownertest;
+        }else if (userPermissions.toLowerCase() === 'admin') {
             user = usersData.admin;
         }
     })

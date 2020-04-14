@@ -7,6 +7,10 @@
         "email":"toni@gmail.com",
         "password":"adminadmin"
     },
+    "ownertest": {
+        "email":"test@test.com",
+        "password":"adminadmin"
+    },
     "admin": {
         "email":"josemi@gmail.com",
         "password":"adminadmin"
