@@ -18,11 +18,15 @@
     }
 
     &__content {
-        
+        &--center {
+            text-align: center;
+        }
     }
 
     &__menu {
         text-align: right;
     }
+
+
 
 }

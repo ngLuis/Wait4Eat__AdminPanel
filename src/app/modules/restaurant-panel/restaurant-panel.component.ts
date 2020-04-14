@@ -3,6 +3,7 @@ import { RestaurantsService } from 'src/app/shared/services/restaurants.service'
 import { CookieService } from 'src/app/shared/services/cookie.service';
 import { Restaurant } from 'src/app/shared/interfaces/Restaurant.interface';
 import { Router } from '@angular/router';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-restaurant-panel',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class RestaurantPanelComponent implements OnInit {
 
   restaurants: Array<Restaurant>;
+  faSignOutAlt = faSignOutAlt;
 
   constructor(
     private restaurantService: RestaurantsService,
@@ -31,6 +33,14 @@ export class RestaurantPanelComponent implements OnInit {
   registerRestaurantManipulation(idRestaurant) {
     this.cookieService.createCookie('w4e-restaurant', idRestaurant);
     this.router.navigate(['/restaurant-panel/'+idRestaurant]);
+  }
+
+  logOut() {
+    this.cookieService.deleteCookie('w4e-email');
+    this.cookieService.deleteCookie('w4e-type');
+    this.cookieService.deleteCookie('w4e-id');
+    this.cookieService.deleteCookie('w4e-restaurant');
+    this.router.navigate(['/login']);
   }
 
 }
