@@ -15,7 +15,7 @@
                     <th class="c-table__header-item">Precio</th>
                     <th class="c-table__header-item">Acciones</th>
                 </tr>
-                <tr *ngFor='let order of orders'>
+                <tr *ngFor='let order of orders' data-cy="order-row">
                     <td class="c-table__body-item">{{order.id}}</td>
                     <td class="c-table__body-item">{{order.date}}</td>
                     <td class="c-table__body-item">{{order.time}}</td>
