@@ -25,3 +25,14 @@ export function toId(id) {
 
     return cy.get(`#${id}`);
 }
+
+export function uploadFile(filePath, htmlTag, dataCyName, fileType ) {
+    cy.fixture(filePath).as('file')
+    .get(`${htmlTag}[data-cy=${dataCyName}]`).then(element => {
+        Cypress.Blob.base64StringToBlob(cy.get('@file'), fileType)
+        .then(blob => {
+            element[0].files[0] = blob;
+            element[0].dispatchEvent(new Event('change', {bubbles:true}))
+        })
+    })
+}

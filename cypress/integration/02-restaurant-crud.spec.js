@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { toDataCy } from "../support/functions";
+import { toDataCy, uploadFile } from "../support/functions";
 
 context('Restaurant CRUD', () => {
 
@@ -18,6 +18,8 @@ context('Restaurant CRUD', () => {
             {"dataCy": 'input@restaurantcrud-cif', "value": "A10101010A", "type":"text"},
             {"dataCy": 'select@restaurantcrud-restaurant-owner', "value": "toni", "type":"select"}
         ])
+
+        uploadFile('/img/1.jpg', 'input', 'input-img', 'image/jpg');
 
         toDataCy('button','send-form').click();
         cy.onToastDisappear('Operación Correcta');

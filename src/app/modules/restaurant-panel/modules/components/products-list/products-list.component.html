@@ -10,7 +10,7 @@
         <div class="l-columns l-columns--4-columns l-columns--3-columns@small-desktop l-columns--2-columns@tablet l-columns--1-columns@phone">
             <div class="l-columns__area g--margin-xs g--margin-left-m" *ngFor='let product of products'>
                 <div class="c-card" data-cy="product-card">
-                    <img class="c-card__img" src="../../../assets/img/carousel/2.jpg"/>
+                    <img class="c-card__img" [src]="product.file"/>
                     <h1 class="c-card__title">{{product.name}}</h1>
                     <div class="c-card__content">
                         <p class="c-card__description">{{product.description}} <b>{{product.price}}€</b></p>

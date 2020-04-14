@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { toDataCy } from "../support/functions";
+import { toDataCy, uploadFile } from "../support/functions";
 
 context('Product CRUD', () => {
 
@@ -22,6 +22,8 @@ context('Product CRUD', () => {
             {"dataCy":"textarea@productcrud-description", "value":"Esta es la descripcion de un producto test", "type":"textarea"},
             {"dataCy":"select@productcrud-category", "value":"Bebida", "type":"select"},
         ])
+
+        uploadFile('/img/1.jpg', 'input', 'input-img', 'image/jpg');
 
         toDataCy('button','send-form').click();
         cy.onToastDisappear('Operación Correcta');
