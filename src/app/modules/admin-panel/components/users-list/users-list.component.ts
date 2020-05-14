@@ -44,7 +44,6 @@ export class UsersListComponent implements OnInit {
     this.openCrudDialog().afterClosed().subscribe( response => {
       if ( response !== undefined ) {
         let user = {
-          id: 1050,
           username: response.userName,
           password: response.userPassword,
           email: response.userEmail,

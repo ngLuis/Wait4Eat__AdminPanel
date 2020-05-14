@@ -32,7 +32,6 @@ export class RestaurantListComponent implements OnInit {
       if ( response !== undefined ) {
         console.log(response)
         let restaurant = {
-          id: 1050,
           name: response.restaurantName,
           cif: response.restaurantCif,
           idOwner: parseInt(response.restaurantOwner)

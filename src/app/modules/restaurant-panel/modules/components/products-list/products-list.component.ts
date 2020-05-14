@@ -50,7 +50,8 @@ export class ProductsListComponent implements OnInit {
           description: response.productDescription,
           price: response.productPrice, 
           category: response.productCategory, 
-          idRestaurant: parseInt(this.cookieService.getCookie('w4e-restaurant'))
+          idRestaurant: parseInt(this.cookieService.getCookie('w4e-restaurant')),
+          imageSrc: 'assets/img/carousel/2.jpg'
         };
         this.productService.update(product.id, productToUpdate);
         this.refreshProductsList();
@@ -80,14 +81,13 @@ export class ProductsListComponent implements OnInit {
   createNewProduct() {
     this.openCrudDialog().afterClosed().subscribe(response => {
       if (response !== undefined ) {
-        console.log(response.file);
         let product: Product = {
-          id: 60, 
           name: response.productName, 
           description: response.productDescription,
           price: response.productPrice, 
           category: response.productCategory, 
-          idRestaurant: parseInt(this.cookieService.getCookie('w4e-restaurant'))
+          idRestaurant: parseInt(this.cookieService.getCookie('w4e-restaurant')),
+          imageSrc: 'assets/img/carousel/2.jpg'
           
         };
         this.productService.insert(product);

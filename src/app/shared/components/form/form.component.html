@@ -24,6 +24,7 @@
         <input class="c-form__input c-form__input--little" formControlName='productPrice' type="text" *ngIf="formType === 'crudProduct'" placeholder="Precio 0.00" data-cy="productcrud-price"/>
         <div *ngIf="formType === 'crudProduct'">
             <label class="c-form__error-message" *ngIf="submitted && form.get('productPrice').errors?.required">Debes completar este campo</label>
+            <label class="c-form__error-message" *ngIf="submitted && form.get('productPrice').errors?.pattern">El campo debe ser númerico y con <br>dos decimales como máximo</label>
         </div> 
     </div>
     <div class="c-form__unity">
@@ -83,8 +84,9 @@
         <label class="c-form__error-message" *ngIf="submitted && form.get('userPassword').errors?.minlength">La contraseña debe tener almenos 6 caracteres</label>
     </div>
     <div class="c-form__unity" *ngIf="formType === 'crudUsers'">
-        <input class="c-form__input c-form__input--little" formControlName='userEmail' type="text" placeholder="Email..." data-cy="usercrud-email-input"/>
-        <label class="c-form__error-message" *ngIf="submitted && form.get('userEmail').errors?.required">Debes completar este campo</label>  
+        <input class="c-form__input c-form__input--little" formControlName='userEmail' type="text" placeholder="Email..." data-cy="usercrud-email-input" (keyup)="checkIfEmailExists()"/>
+        <label class="c-form__error-message" *ngIf="submitted && form.get('userEmail').errors?.required">Debes completar este campo</label>
+        <label class="c-form__error-message" *ngIf="submitted && userEmailExists">El email introducido ya existe</label>  
         <label class="c-form__error-message" *ngIf="submitted && form.get('userEmail').errors?.email">El formato de email debe ser correcto</label>    
     </div>
     <div class="c-form__unity" *ngIf="formType === 'crudUsers'">

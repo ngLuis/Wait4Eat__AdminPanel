@@ -18,6 +18,8 @@ export class FormComponent implements OnInit {
 
   userTypes: Array<Number> = [0,1,2]
 
+  userEmailExists: boolean = false;
+
   @Input() formType: Form;
   @Input() buttonText: string;
   @Input() formTitle: string;
@@ -85,7 +87,7 @@ export class FormComponent implements OnInit {
   createFormCrudProduct() {
     return new FormGroup({
       productName: new FormControl('', [Validators.required]),
-      productPrice: new FormControl('', [Validators.required]),
+      productPrice: new FormControl('', [Validators.required, Validators.pattern('[0-9]*[.]?[0-9][0-9]')]),
       productCategory: new FormControl('', [Validators.required]),
       productDescription: new FormControl('', [Validators.required]),
       file: new FormControl('')
@@ -150,9 +152,19 @@ export class FormComponent implements OnInit {
    this.sendForm();
   }
 
+  checkIfEmailExists() {
+    console.log(this.authService.isEmailInUse(this.form.get('userEmail').value));
+
+    if(this.authService.isEmailInUse(this.form.get('userEmail').value) !== undefined) {
+      this.userEmailExists = true;
+    } else {
+      this.userEmailExists = false;
+    }
+  }
+
   sendForm() {
     this.submitted = true;
-    if (this.form.valid) {
+    if (this.form.valid && !this.userEmailExists) {
       this.formData.emit(this.form.value);
     }
   }

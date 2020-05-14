@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/User.interface';
+import { ArrayUtils } from '../utils/Array.utils';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +35,7 @@ export class AuthService {
   }
 
   createUser(user) {
+    user.id = ArrayUtils.getLastInsertId(this.usersArray);
     this.usersArray.push(user);
   }
 
@@ -52,5 +55,9 @@ export class AuthService {
 
   getUsersByType(type) {
     return this.usersArray.filter(user => user.type === type)
+  }
+
+  isEmailInUse(email) {
+    return this.usersArray.find( user => user.email.toLowerCase() === email.toLowerCase());
   }
 }

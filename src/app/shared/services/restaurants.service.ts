@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Restaurant } from '../interfaces/Restaurant.interface';
+import { ArrayUtils } from '../utils/Array.utils';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,7 @@ export class RestaurantsService {
   }
 
   createRestaurant(restaurant) {
+    restaurant.id = ArrayUtils.getLastInsertId(this.restaurants);
     this.restaurants.splice(this.restaurants.length, 0, restaurant);
   }
 

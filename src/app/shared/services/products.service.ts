@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/Product.interface';
+import { ArrayUtils } from '../utils/Array.utils';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,10 @@ import { Product } from '../interfaces/Product.interface';
 export class ProductsService {
 
   products: Array<Product> = [
-    {id: 0, name: 'Hamburguesa 100% vacuno', description: 'Jugosa hamburguesa', price: 9.85, category: 'food', idRestaurant: 0},
-    {id: 1, name: 'Coca.Cola', description: 'Refresco con gas', price: 1.20, category: 'drink', idRestaurant: 2},
-    {id: 2, name: 'Cerveza', description: 'Refresco con gas', price: 1.20, category: 'drink', idRestaurant: 0},
-    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.58, category: 'food', idRestaurant: 0},
-    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.58, category: 'food', idRestaurant: 0},
-    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.5, category: 'food', idRestaurant: 0},
-    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.5, category: 'food', idRestaurant: 0},
+    {id: 0, name: 'Hamburguesa 100% vacuno', description: 'Jugosa hamburguesa', price: 9.85, category: 'food', idRestaurant: 0, imageSrc: 'assets/img/carousel/2.jpg'},
+    {id: 1, name: 'Coca.Cola', description: 'Refresco con gas', price: 1.20, category: 'drink', idRestaurant: 2, imageSrc: 'assets/img/carousel/1.jpg'},
+    {id: 2, name: 'Cerveza', description: 'Refresco con gas', price: 1.20, category: 'drink', idRestaurant: 0, imageSrc: 'assets/img/carousel/4.jpg'},
+    {id: 3, name: 'Patatas Fritas', description: 'Patatas fritas con nuestra mejor salsa campera', price: 3.58, category: 'food', idRestaurant: 0, imageSrc: 'assets/img/carousel/2.jpg'},
   ]
 
   constructor() { }
@@ -47,6 +45,7 @@ export class ProductsService {
 
   insert(product) {
     let length = this.products.length;
+    product.id = ArrayUtils.getLastInsertId(this.products);
     this.products.splice(length, 0, product);
   }
 
